@@ -1,4 +1,5 @@
 # Windows image file caches
+*.sln.ide
 Thumbs.db
 ehthumbs.db
 obj
