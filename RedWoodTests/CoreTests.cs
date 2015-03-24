@@ -1,6 +1,6 @@
 ﻿using Autofac;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using NSubstitute;
 using RedWood;
 using RedWood.Interface.Debug;
@@ -8,10 +8,10 @@ using IContainer = Autofac.IContainer;
 
 namespace RedWoodTests
 {
-    [TestClass]
+    [TestFixture]
     public class CoreTests
     {
-        [TestMethod]
+        [Test]
         public void TestContainerFetch()
         {
             IContainer container = new IoC().GetContainer();
@@ -30,7 +30,7 @@ namespace RedWoodTests
                 return 1;
             }
         };
-        [TestMethod]
+        [Test]
         public void TestContainerRegister()
         {
             IContainer container = new IoC().GetContainer();
