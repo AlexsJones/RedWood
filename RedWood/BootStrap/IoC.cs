@@ -8,6 +8,8 @@ using Autofac.Core;
 using Autofac.Extras.NLog;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.IE;
+using OpenQA.Selenium.Opera;
 using OpenQA.Selenium.PhantomJS;
 using OpenQA.Selenium.Remote;
 using RedWood.Implementation.Debug;
@@ -29,10 +31,14 @@ namespace RedWood
 
             containerBuilder.RegisterType<FirefoxDriver>().Keyed<IWebDriver>(BrowserType.Firefox);
 
+            containerBuilder.RegisterType<OperaDriver>().Keyed<IWebDriver>(BrowserType.Opera);
+
+            containerBuilder.RegisterType<InternetExplorerDriver>().Keyed<IWebDriver>(BrowserType.InternetExplorer);
+
             containerBuilder.RegisterType<ChromeDriver>().Keyed<IWebDriver>(BrowserType.Chrome);
 
             containerBuilder.RegisterType<PhantomJSDriver>().
-                Keyed<IWebDriver>(BrowserType.PhantomJS).
+                Keyed<IWebDriver>(BrowserType.PhantomJs).
                 WithParameters(new []
                 {
                     new ResolvedParameter((p,c) => 

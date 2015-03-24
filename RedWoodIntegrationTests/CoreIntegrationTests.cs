@@ -18,7 +18,7 @@ namespace RedWoodIntegrationTests
         public void BasicHeadlessDriverUsage()
         {
             var container = new IoC().GetContainer();
-            var headless = container.ResolveKeyed<IWebDriver>(BrowserType.PhantomJS);
+            var headless = container.ResolveKeyed<IWebDriver>(BrowserType.PhantomJs);
             headless.Navigate().GoToUrl("http://www.google.com");
             Assert.AreEqual(headless.Title,"Google");
             headless.Quit();

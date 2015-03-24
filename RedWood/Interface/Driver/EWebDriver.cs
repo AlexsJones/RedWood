@@ -10,6 +10,8 @@ namespace RedWood.Interface.Driver
     {
         Chrome,
         Firefox,
-        PhantomJS,
+        Opera,
+        InternetExplorer,
+        PhantomJs,
     }
 }
