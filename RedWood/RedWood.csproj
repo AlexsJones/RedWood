@@ -87,8 +87,8 @@
     <Compile Include="BootStrap\IoC.cs" />
     <Compile Include="Implementation\Debug\Logger.cs" />
     <Compile Include="Interface\Debug\ILogger.cs" />
-    <Compile Include="Interface\Driver\IDriver.cs" />
-    <Compile Include="Interface\Page\IRedWoodPage.cs" />
+    <Compile Include="Interface\Driver\EWebDriver.cs" />
+    <Compile Include="Interface\Page\IPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Support\SeleniumController.cs" />
     <Compile Include="Support\SeleniumStepsBase.cs" />
@@ -101,6 +101,10 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
