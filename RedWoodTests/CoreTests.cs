@@ -34,14 +34,12 @@ namespace RedWoodTests
         public void TestContainerRegister()
         {
             IContainer container = new IoC().GetContainer();
-
             var builder = new ContainerBuilder();         
             var instance = NSubstitute.Substitute.For<ITestInterface>();
             instance.GetFoo().Returns(5);
             builder.RegisterInstance(instance).As<ITestInterface>();
             builder.Update(container);
             container.Resolve<ITestInterface>().GetFoo().Should().Be(5);
-
         }
     }
 }
