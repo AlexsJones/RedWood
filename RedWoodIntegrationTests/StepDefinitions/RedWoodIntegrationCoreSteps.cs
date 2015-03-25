@@ -16,8 +16,7 @@ namespace RedWoodIntegrationTests.StepDefinitions
         {
            var container =  ScenarioContext.Current.Get<IContainer>();
            var webDriver = container.ResolveKeyed<IWebDriver>(BrowserType.PhantomJs);
-           ScenarioContext.Current.Set(webDriver);
-           webDriver.Navigate().GoToUrl("http://www.google.com");        
+           ScenarioContext.Current.Set(webDriver);    
         }
 
         [When(@"I navigate to (.*)")]
@@ -31,7 +30,6 @@ namespace RedWoodIntegrationTests.StepDefinitions
         public void ThenThePageTitleShouldBe(string p0)
         {
             var webDriver = ScenarioContext.Current.Get<IWebDriver>();
-            webDriver.Navigate().GoToUrl("http://www.google.com");
             Assert.AreEqual(webDriver.Title, "Google");
             webDriver.Quit();
         }
