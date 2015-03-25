@@ -3,6 +3,7 @@ using FluentAssertions;
 using NUnit.Framework;
 using NSubstitute;
 using RedWood;
+using RedWood.BootStrap;
 using RedWood.Interface.Debug;
 using IContainer = Autofac.IContainer;
 

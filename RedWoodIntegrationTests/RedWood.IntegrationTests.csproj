@@ -39,19 +39,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
     </Reference>
-    <Reference Include="FluentAssertions">
-      <HintPath>..\packages\FluentAssertions.3.3.0\lib\net45\FluentAssertions.dll</HintPath>
-    </Reference>
-    <Reference Include="FluentAssertions.Core">
-      <HintPath>..\packages\FluentAssertions.3.3.0\lib\net45\FluentAssertions.Core.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="TechTalk.SpecFlow">
       <HintPath>..\packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
@@ -83,10 +74,6 @@
     <ProjectReference Include="..\RedWood.Pages\RedWood.Pages.csproj">
       <Project>{66666baa-0c93-4d4c-ba65-d7af08f28dad}</Project>
       <Name>RedWood.Pages</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\RedWoodSpecFlow\RedWood.SpecFlow.csproj">
-      <Project>{b408b7d1-44a8-4430-9477-17ddc058bdaa}</Project>
-      <Name>RedWood.SpecFlow</Name>
     </ProjectReference>
     <ProjectReference Include="..\RedWood\RedWood.csproj">
       <Project>{465bb2bd-0962-4963-8460-0348a13ed9a0}</Project>

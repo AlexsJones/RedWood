@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Drawing.Printing;
 using Autofac;
-using FluentAssertions;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using RedWood;
+using RedWood.BootStrap;
 using RedWood.Interface.Driver;
 
 namespace RedWoodIntegrationTests

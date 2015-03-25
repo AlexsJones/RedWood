@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Autofac.Core;
 using Autofac.Extras.NLog;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
@@ -9,9 +10,8 @@ using OpenQA.Selenium.PhantomJS;
 using RedWood.Implementation.Debug;
 using RedWood.Interface.Driver;
 using ILogger = RedWood.Interface.Debug.ILogger;
-using IWebDriver = OpenQA.Selenium.IWebDriver;
 
-namespace RedWood
+namespace RedWood.BootStrap
 {
     public class IoC
     {
