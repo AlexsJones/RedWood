@@ -3,6 +3,7 @@
 Thumbs.db
 ehthumbs.db
 obj
+BuildNugets
 bin
 packages
 *.user
