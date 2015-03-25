@@ -9,7 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedWoodTests", "RedWoodTest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedWoodIntegrationTests", "RedWoodIntegrationTests\RedWoodIntegrationTests.csproj", "{0A188EA4-DE55-4592-9505-E2FA4846444E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedWoodSpecFlow", "RedWoodSpecFlow\RedWoodSpecFlow.csproj", "{B408B7D1-44A8-4430-9477-17DDC058BDAA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedWood.SpecFlow", "RedWoodSpecFlow\RedWood.SpecFlow.csproj", "{B408B7D1-44A8-4430-9477-17DDC058BDAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedWood.Pages", "RedWood.Pages\RedWood.Pages.csproj", "{66666BAA-0C93-4D4C-BA65-D7AF08F28DAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{B408B7D1-44A8-4430-9477-17DDC058BDAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B408B7D1-44A8-4430-9477-17DDC058BDAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B408B7D1-44A8-4430-9477-17DDC058BDAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66666BAA-0C93-4D4C-BA65-D7AF08F28DAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66666BAA-0C93-4D4C-BA65-D7AF08F28DAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66666BAA-0C93-4D4C-BA65-D7AF08F28DAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66666BAA-0C93-4D4C-BA65-D7AF08F28DAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

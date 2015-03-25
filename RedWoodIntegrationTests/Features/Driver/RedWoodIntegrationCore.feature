@@ -5,5 +5,5 @@
 @headless
 Scenario: Navigate to a webpage
 	Given I have a web browser
-	When I navigate to "http://google.com"
-	Then the page title should be "Google"
+	When I navigate to http://google.com
+	Then the page title should be Google

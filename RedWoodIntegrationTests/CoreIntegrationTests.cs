@@ -6,8 +6,6 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using RedWood;
 using RedWood.Interface.Driver;
-using Selenium_SpecFlow.Support;
-
 
 namespace RedWoodIntegrationTests
 {
