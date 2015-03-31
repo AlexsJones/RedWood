@@ -37,7 +37,6 @@ namespace RedWood.Pages.Implementation.Page
                 _url = value;
             }
         }
-
         public Page(IWebDriver driver)
         {
             Driver = driver;

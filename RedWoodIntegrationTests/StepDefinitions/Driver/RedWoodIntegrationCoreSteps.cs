@@ -1,4 +1,5 @@
-﻿using Autofac;
+﻿using System;
+using Autofac;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using RedWood.Interface.Driver;
@@ -17,8 +18,7 @@ namespace RedWoodIntegrationTests.StepDefinitions.Driver
            var container =  ScenarioContext.Current.Get<IContainer>();
            var webDriver = container.ResolveKeyed<IWebDriver>(BrowserType.PhantomJs);
            ScenarioContext.Current.Set(webDriver);
-
-           var testPage = new TestPage(webDriver,"http://www.google.com");
+           var testPage = new TestPage(webDriver);
            ScenarioContext.Current.Set(testPage);
         }
 
@@ -26,15 +26,26 @@ namespace RedWoodIntegrationTests.StepDefinitions.Driver
         public void WhenINavigateTo(string p0)
         {
             var testPage = ScenarioContext.Current.Get<TestPage>();
-            testPage.Visit();
+            testPage.Visit(p0);
         }
-
+        [Then(@"when I go back")]
+        public void ThenWhenIGoBack()
+        {
+            var testPage = ScenarioContext.Current.Get<TestPage>();
+            testPage.Back();
+        }
+        [When(@"click on (.*)")]
+        public void WhenClickOn(string p0)
+        {
+            var testPage = ScenarioContext.Current.Get<TestPage>();
+            testPage.FindElement(By.PartialLinkText(p0), TimeSpan.FromSeconds(3));
+            testPage.ClickOn(By.PartialLinkText(p0));
+        }
         [Then(@"the page title should be (.*)")]
         public void ThenThePageTitleShouldBe(string p0)
         {
             var testPage = ScenarioContext.Current.Get<TestPage>();
-            Assert.AreEqual(testPage.Title(), "Google");
-            testPage.Driver.Quit();
+            Assert.True(testPage.Title().Contains(p0));        
         }
     }
 }
