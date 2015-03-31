@@ -15,13 +15,9 @@ namespace RedWoodIntegrationTests.StepDefinitions.Driver
         [Given(@"I have a web browser")]
         public void GivenIHaveAWebBrowser()
         {
-           var container =  ScenarioContext.Current.Get<IContainer>();
-           var webDriver = container.ResolveKeyed<IWebDriver>(BrowserType.PhantomJs);
-           ScenarioContext.Current.Set(webDriver);
-           var testPage = new TestPage(webDriver);
+           var testPage = new TestPage(ScenarioContext.Current.Get<IWebDriver>());
            ScenarioContext.Current.Set(testPage);
         }
-
         [When(@"I navigate to (.*)")]
         public void WhenINavigateTo(string p0)
         {

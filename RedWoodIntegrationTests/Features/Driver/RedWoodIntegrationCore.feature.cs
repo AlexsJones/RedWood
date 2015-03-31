@@ -67,11 +67,11 @@ namespace RedWoodIntegrationTests.Features.Driver
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Navigate to a webpage")]
-        [NUnit.Framework.CategoryAttribute("headless")]
+        [NUnit.Framework.CategoryAttribute("PhantomJs")]
         public virtual void NavigateToAWebpage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to a webpage", new string[] {
-                        "headless"});
+                        "PhantomJs"});
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
@@ -86,11 +86,11 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Navigate forward and backward")]
-        [NUnit.Framework.CategoryAttribute("headless")]
+        [NUnit.Framework.CategoryAttribute("PhantomJs")]
         public virtual void NavigateForwardAndBackward()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate forward and backward", new string[] {
-                        "headless"});
+                        "PhantomJs"});
 #line 11
 this.ScenarioSetup(scenarioInfo);
 #line 12
