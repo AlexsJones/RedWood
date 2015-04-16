@@ -53,6 +53,8 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="specflow.exe.config" />
+    <None Include="TeamCity.SpecFlow.Reporting.psm1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RedWood\RedWood.csproj">
