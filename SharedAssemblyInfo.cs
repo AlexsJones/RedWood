@@ -13,4 +13,4 @@ using System.Runtime.InteropServices;
 // Set AssemblyInformationalVersionAttribute to be the same as
 // AssemblyVersionAttribute so that the "Product version" in the file
 // properties window matches the version displayed in the GAC shell extension.
-[assembly: AssemblyInformationalVersion("1.0.0.1")] // a.k.a. "Product version"
+[assembly: AssemblyInformationalVersion("1.0.0.2")] // a.k.a. "Product version"
