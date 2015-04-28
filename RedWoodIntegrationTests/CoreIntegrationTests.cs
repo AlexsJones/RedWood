@@ -5,6 +5,7 @@ using OpenQA.Selenium;
 using RedWood;
 using RedWood.BootStrap;
 using RedWood.Interface.Driver;
+using RedWood.Pages.Implementation.Page;
 
 namespace RedWoodIntegrationTests
 {

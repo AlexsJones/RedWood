@@ -1,4 +1,7 @@
-﻿using Autofac;
+﻿using System;
+using System.IO;
+using System.Reflection;
+using Autofac;
 using Autofac.Core;
 using Autofac.Extras.NLog;
 using OpenQA.Selenium;
@@ -14,6 +17,17 @@ namespace RedWood.BootStrap
 {
     public class IoC
     {
+        public string AssemblyDirectory
+        {
+            get
+            {
+                string codeBase = Assembly.GetExecutingAssembly().CodeBase;
+                UriBuilder uri = new UriBuilder(codeBase);
+                string path = Uri.UnescapeDataString(uri.Path);
+                return Path.GetDirectoryName(path);
+            }
+        }
+
         ContainerBuilder GetContainerBuilder()
         {
             var containerBuilder = new ContainerBuilder();
@@ -34,7 +48,7 @@ namespace RedWood.BootStrap
                 {
                     new ResolvedParameter((p,c) => 
                         p.Name == "phantomJSDriverServerDirectory",
-                        (p,c) => @"..\..\..\ThirdParty"),
+                        (p,c) => AssemblyDirectory),
                 });
 
             return containerBuilder;

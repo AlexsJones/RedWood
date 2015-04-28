@@ -47,6 +47,7 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Extensions\Page\PageObjectExtensions.cs" />
+    <Compile Include="Implementation\Page\PageConfiguration.cs" />
     <Compile Include="Implementation\Page\PageException.cs" />
     <Compile Include="Interface\Page\IPage.cs" />
     <Compile Include="Implementation\Page\Page.cs" />
