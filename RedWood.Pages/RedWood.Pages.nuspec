@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>RedWood.Pages</id>
-    <version>1.0</version>
+    <version>$version$</version>
     <authors>jonesax</authors>
     <owners>jonesax</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

@@ -7,7 +7,6 @@ using Autofac;
 using OpenQA.Selenium;
 using RedWood;
 using RedWood.BootStrap;
-using RedWood.Interface.Debug;
 using RedWood.Interface.Driver;
 using TechTalk.SpecFlow;
 
@@ -37,13 +36,11 @@ namespace RedWoodSpecFlow
         public void BeforeScenario()
         {
             var container = new IoC().GetContainer();
-            var logger = container.Resolve<ILogger>();
 
             BrowserType b = ParseEnum(ScenarioContext.Current.ScenarioInfo.Tags.First(), BrowserType.Firefox);
             var webDriver = container.ResolveKeyed<IWebDriver>(b);
                       
             ScenarioContext.Current.Set(container);
-            ScenarioContext.Current.Set(logger);
             ScenarioContext.Current.Set(webDriver);
         }
 

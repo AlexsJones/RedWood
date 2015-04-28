@@ -4,7 +4,6 @@ using NUnit.Framework;
 using NSubstitute;
 using RedWood;
 using RedWood.BootStrap;
-using RedWood.Interface.Debug;
 using IContainer = Autofac.IContainer;
 
 namespace RedWoodTests
@@ -17,7 +16,6 @@ namespace RedWoodTests
         {
             IContainer container = new IoC().GetContainer();
             container.Should().NotBeNull();
-            container.IsRegistered<ILogger>().Should().BeTrue();
         }
 
         public interface ITestInterface
