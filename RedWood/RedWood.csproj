@@ -52,7 +52,12 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="BootStrap\IoC.cs" />
+    <Compile Include="Implementation\FileService\LocalFileService.cs" />
+    <Compile Include="Implementation\FileService\RemoteFileService.cs" />
     <Compile Include="Interface\Driver\BrowserType.cs" />
+    <Compile Include="Implementation\FileService\FileException.cs" />
+    <Compile Include="Interface\FileService\FileServiceType.cs" />
+    <Compile Include="Interface\FileService\IFileService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -60,9 +65,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="phantomjs.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="phantomjs.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

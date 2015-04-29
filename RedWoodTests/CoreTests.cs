@@ -8,6 +8,7 @@ using OpenQA.Selenium.Firefox;
 using RedWood;
 using RedWood.BootStrap;
 using RedWood.Interface.Driver;
+using RedWood.Interface.FileService;
 using RedWood.Pages.Implementation.Page;
 using IContainer = Autofac.IContainer;
 
@@ -20,6 +21,7 @@ namespace RedWoodTests
         public void TestContainerFetch()
         {
             IContainer container = new IoC().GetContainer();
+
             container.Should().NotBeNull();
         }
 
@@ -27,6 +29,7 @@ namespace RedWoodTests
         {
              int GetFoo();
         };
+
         public class TestClass : ITestInterface
         {
             public int GetFoo()
@@ -39,11 +42,17 @@ namespace RedWoodTests
         public void TestContainerRegister()
         {
             IContainer container = new IoC().GetContainer();
+
             var builder = new ContainerBuilder();         
+
             var instance = NSubstitute.Substitute.For<ITestInterface>();
+
             instance.GetFoo().Returns(5);
+
             builder.RegisterInstance(instance).As<ITestInterface>();
+
             builder.Update(container);
+
             container.Resolve<ITestInterface>().GetFoo().Should().Be(5);
         }
 
@@ -53,16 +62,33 @@ namespace RedWoodTests
             {
             }
         }
+
         [Test]
         public void TestPageConfiguration()
         {
             var builder = new IoC().GetContainer();
+
             IWebDriver driver = builder.ResolveKeyed<IWebDriver>(BrowserType.PhantomJs);
+
             Page r = PageConfiguration.GetPage(Assembly.GetExecutingAssembly().GetName().Name,
                 "TestPage", driver);
 
             r.Url.Should().Be("test");
         }
 
+        [Test]
+        public void TestFileServiceLocalRemote()
+        {
+            var builder = new IoC().GetContainer();
+            IFileService fs = builder.ResolveKeyed<IFileService>(FileServiceType.Remote);
+
+            fs.DoesFileExist("http://www.google.com").Should().BeTrue();
+
+            fs.DoesFileExist("RedWood.dll").Should().BeFalse();
+
+            fs = builder.ResolveKeyed<IFileService>(FileServiceType.Local);
+
+            fs.DoesFileExist("RedWood.dll").Should().BeTrue();
+        }
     }
 }
