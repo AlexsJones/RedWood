@@ -14,7 +14,7 @@ namespace RedWood.Pages.Implementation.Page
             {
                 throw new PageException("Page Not found!");
             }
-            return (Page)Activator.CreateInstance(type, driver);         
+            return (Page)Activator.CreateInstance(type, driver);
         }
     }
 }
