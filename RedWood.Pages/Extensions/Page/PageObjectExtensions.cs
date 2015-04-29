@@ -46,7 +46,7 @@ namespace RedWood.Pages.Extensions.Page
             {
                 try
                 {
-                    FindElement(page, id.ByType, TimeSpan.FromSeconds(3));
+                    FindElement(page, id.ByType, TimeSpan.FromSeconds(10));
                 }
                 catch
                 {
