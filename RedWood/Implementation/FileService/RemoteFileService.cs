@@ -12,7 +12,7 @@ namespace RedWood.Implementation.FileService
                 var request = WebRequest.Create(url) as HttpWebRequest;
                 if (request != null)
                 {
-                    request.Method = "HEAD";
+                    request.Method = "GET";
                     var response = request.GetResponse() as HttpWebResponse;
                     // ReSharper disable once PossibleNullReferenceException
                     return (response.StatusCode == HttpStatusCode.OK);

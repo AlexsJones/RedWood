@@ -38,9 +38,11 @@ namespace RedWoodSpecFlow
             var container = new IoC().GetContainer();
 
             BrowserType b = ParseEnum(ScenarioContext.Current.ScenarioInfo.Tags.First(), BrowserType.Firefox);
+
             var webDriver = container.ResolveKeyed<IWebDriver>(b);
                       
             ScenarioContext.Current.Set(container);
+
             ScenarioContext.Current.Set(webDriver);
         }
 
