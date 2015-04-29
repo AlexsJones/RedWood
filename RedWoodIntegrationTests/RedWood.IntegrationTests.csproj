@@ -41,10 +41,20 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="FluentAssertions, Version=3.3.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentAssertions.3.3.0\lib\net45\FluentAssertions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentAssertions.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentAssertions.3.3.0\lib\net45\FluentAssertions.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="TechTalk.SpecFlow">
       <HintPath>..\packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
@@ -68,9 +78,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RedWoodIntegrationCore.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\PageIdentifiers\PageIdentifiers.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PageIdentifiers.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BbcPage.cs" />
     <Compile Include="Pages\TestPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StepDefinitions\Driver\RedWoodIntegrationCoreSteps.cs" />
+    <Compile Include="StepDefinitions\PageIdentifiers\PageIdentifiersSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RedWood.Pages\RedWood.Pages.csproj">
@@ -92,11 +109,16 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>RedWoodIntegrationCore.feature.cs</LastGenOutput>
     </None>
+    <None Include="Features\PageIdentifiers\PageIdentifiers.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PageIdentifiers.feature.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="phantomjs.exe" />
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

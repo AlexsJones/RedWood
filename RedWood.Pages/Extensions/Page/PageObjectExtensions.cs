@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using RedWood.Pages.Interface.Page;
 
 namespace RedWood.Pages.Extensions.Page
 {
@@ -35,6 +37,24 @@ namespace RedWood.Pages.Extensions.Page
         {       
             var wait = new WebDriverWait(page.Driver, timeoutInSeconds);
             return wait.Until(driver => driver.FindElement(by));
+        }
+
+        public static bool DoesPageMatchIdentifiers(this Implementation.Page.Page page)
+        {
+            if (page.KeyIdentifiers().Length == 0) return false;
+            foreach (var id in page.KeyIdentifiers())
+            {
+                try
+                {
+                    FindElement(page, id.ByType, TimeSpan.FromSeconds(3));
+                }
+                catch
+                {
+                    Debug.WriteLine("DoesPageMatchIdentifiers not found => " + id.ByType);
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

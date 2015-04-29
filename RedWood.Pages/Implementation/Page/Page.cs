@@ -6,6 +6,9 @@ namespace RedWood.Pages.Implementation.Page
     public class Page : IPage
     {
         private IWebDriver _driver = null;
+
+        private readonly KeyIdentifier[] _keyIdentifiers = null;
+
         public IWebDriver Driver
         {
             get
@@ -22,6 +25,7 @@ namespace RedWood.Pages.Implementation.Page
             }           
         }
         private string _url = null;
+
         public string Url
         {
             get
@@ -37,6 +41,17 @@ namespace RedWood.Pages.Implementation.Page
                 _url = value;
             }
         }
+
+        public KeyIdentifier[] KeyIdentifiers()
+        {
+            if (_keyIdentifiers == null)
+            {
+                throw new PageException("No key identifiers set!");
+            }
+            return _keyIdentifiers;
+            ;
+        }
+
         public Page(IWebDriver driver)
         {
             Driver = driver;
@@ -46,6 +61,13 @@ namespace RedWood.Pages.Implementation.Page
         {
             Driver = driver;
             Url = url;
+        }
+
+        public Page(IWebDriver driver, string url, KeyIdentifier[] identifiers)
+        {
+            Driver = driver;
+            Url = url;
+            _keyIdentifiers = identifiers;
         }
     }
 }
