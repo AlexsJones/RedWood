@@ -23,9 +23,11 @@ namespace RedWoodIntegrationTests.StepDefinitions.PageBaseModifiers
             string baseUrl = (string)ScenarioContext.Current["BASE_URL"];
 
             var webdriver = ScenarioContext.Current.Get<IWebDriver>();
+
             Page p = PageConfiguration.GetPage(Assembly.GetExecutingAssembly().GetName().Name,
                 p0, webdriver);
-            p.Visit(x => Path.Combine(baseUrl, p.Url));
+
+            p.Visit(x => new Uri(new Uri(baseUrl), p.Url).ToString());
 
             ScenarioContext.Current.Set(p);
         }
