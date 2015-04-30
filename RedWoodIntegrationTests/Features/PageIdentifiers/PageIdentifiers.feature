@@ -4,5 +4,5 @@
 
 @Firefox
 Scenario: Verify the page I am on
-	Given I am on BbcPage
+	Given I'm on BbcPage
 	Then I should be on the correct page

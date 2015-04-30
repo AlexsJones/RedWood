@@ -11,8 +11,8 @@ namespace RedWoodIntegrationTests.StepDefinitions.PageIdentifiers
     [Binding]
     public class PageIdentifiersSteps
     {
-        [Given(@"I am on (.*)")]
-        public void GivenIAmOn(string p0)
+        [Given(@"I'm on (.*)")]
+        public void GivenImOn(string p0)
         {
             var webdriver = ScenarioContext.Current.Get<IWebDriver>();
             Page p = PageConfiguration.GetPage(Assembly.GetExecutingAssembly().GetName().Name,

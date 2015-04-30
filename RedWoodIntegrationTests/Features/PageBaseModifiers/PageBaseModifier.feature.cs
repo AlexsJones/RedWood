@@ -11,7 +11,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace RedWoodIntegrationTests.Features.PageIdentifiers
+namespace RedWoodIntegrationTests.Features.PageBaseModifiers
 {
     using TechTalk.SpecFlow;
     
@@ -19,21 +19,21 @@ namespace RedWoodIntegrationTests.Features.PageIdentifiers
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("PageIdentifiers")]
-    public partial class PageIdentifiersFeature
+    [NUnit.Framework.DescriptionAttribute("PageBaseModifier")]
+    public partial class PageBaseModifierFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "PageIdentifiers.feature"
+#line 1 "PageBaseModifier.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "PageIdentifiers", "In order to verify a page that I\'m on\nI want to use matchers or identifiers as va" +
-                    "lidation", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "PageBaseModifier", "I want to be able to set a service base url \nEverything should then hinge off of " +
+                    "this url", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -66,17 +66,19 @@ namespace RedWoodIntegrationTests.Features.PageIdentifiers
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify the page I am on")]
+        [NUnit.Framework.DescriptionAttribute("Using Base Url pattern")]
         [NUnit.Framework.CategoryAttribute("Firefox")]
-        public virtual void VerifyThePageIAmOn()
+        public virtual void UsingBaseUrlPattern()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the page I am on", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Using Base Url pattern", new string[] {
                         "Firefox"});
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
- testRunner.Given("I\'m on BbcPage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have a base service Url http://www.bbc.co.uk/", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
+ testRunner.And("I am on relative BbcNewsPage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 9
  testRunner.Then("I should be on the correct page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

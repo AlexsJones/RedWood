@@ -78,15 +78,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RedWoodIntegrationCore.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\PageBaseModifiers\PageBaseModifier.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PageBaseModifier.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\PageIdentifiers\PageIdentifiers.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PageIdentifiers.feature</DependentUpon>
     </Compile>
+    <Compile Include="Pages\BbcNewsPage.cs" />
     <Compile Include="Pages\BbcPage.cs" />
     <Compile Include="Pages\TestPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StepDefinitions\Driver\RedWoodIntegrationCoreSteps.cs" />
+    <Compile Include="StepDefinitions\PageBaseModifiers\PageBaseModifierSteps.cs" />
     <Compile Include="StepDefinitions\PageIdentifiers\PageIdentifiersSteps.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -108,6 +115,10 @@
     <None Include="Features\Driver\RedWoodIntegrationCore.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>RedWoodIntegrationCore.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\PageBaseModifiers\PageBaseModifier.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PageBaseModifier.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\PageIdentifiers\PageIdentifiers.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

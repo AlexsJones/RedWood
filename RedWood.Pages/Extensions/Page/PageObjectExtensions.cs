@@ -20,6 +20,11 @@ namespace RedWood.Pages.Extensions.Page
           page.Driver.Navigate().GoToUrl(page.Url);
         }
 
+        public static void Visit(this Implementation.Page.Page page, Func<string ,string> urlModifier)
+        {
+            page.Driver.Navigate().GoToUrl(urlModifier.Invoke(page.Url));
+        }
+
         public static void Refresh(this Implementation.Page.Page page)
         {
             page.Driver.Navigate().Refresh();
