@@ -12,6 +12,7 @@ using TechTalk.SpecFlow;
 
 namespace RedWoodSpecFlow
 {
+
     [Binding]
     public class SpecFlowHooks
     {
@@ -32,10 +33,13 @@ namespace RedWoodSpecFlow
                 return defaultValue;
             }
         }
+
         [BeforeScenario]
         public void BeforeScenario()
         {
-            var container = new IoC().GetContainer();
+            var ioc = new IoC();           
+
+            var container = ioc.GetContainer();
 
             BrowserType b = ParseEnum(ScenarioContext.Current.ScenarioInfo.Tags.First(), BrowserType.Firefox);
 

@@ -20,17 +20,22 @@ namespace RedWood.BootStrap
 {
     public class IoC
     {
+
+        public delegate void RegisterThirdPartyDependencies(ContainerBuilder c);
+
+        public RegisterThirdPartyDependencies RegistrationDelegate = null;
+
         public string DirProject()
         {
-            string DirDebug = System.IO.Directory.GetCurrentDirectory();
-            string DirProject = DirDebug;
+            string dirDebug = System.IO.Directory.GetCurrentDirectory();
+            var dirProject = dirDebug;
 
             for (int counter_slash = 0; counter_slash < 2; counter_slash++)
             {
-                DirProject = DirProject.Substring(0, DirProject.LastIndexOf(@"\"));
+                dirProject = dirProject.Substring(0, dirProject.LastIndexOf(@"\"));
             }
 
-            return DirProject;
+            return dirProject;
         }
 
         ContainerBuilder GetContainerBuilder()
@@ -65,11 +70,17 @@ namespace RedWood.BootStrap
 
             return containerBuilder;
         }
-     
+
+
+
         public IContainer GetContainer()
         {
-            var container = GetContainerBuilder().Build();
-            return container;
+            var container = GetContainerBuilder();
+          
+            if(RegistrationDelegate != null)
+                RegistrationDelegate(container);
+
+            return container.Build();
         }
     }
 }
