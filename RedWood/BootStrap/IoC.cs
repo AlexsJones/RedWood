@@ -14,7 +14,9 @@ using OpenQA.Selenium.PhantomJS;
 using RedWood.Interface.Driver;
 using System.Configuration;
 using RedWood.Implementation.FileService;
+using RedWood.Implementation.SessionLogger;
 using RedWood.Interface.FileService;
+using RedWood.Interface.SessionLogger;
 
 namespace RedWood.BootStrap
 {
@@ -41,7 +43,10 @@ namespace RedWood.BootStrap
         ContainerBuilder GetContainerBuilder()
         {
             var containerBuilder = new ContainerBuilder();
-            
+
+            /* Session Logger */
+            containerBuilder.RegisterType<CliSessionLogger>().As<ISessionLogger>();
+
             /* NLog module */
             containerBuilder.RegisterModule<NLogModule>();
 
@@ -56,13 +61,13 @@ namespace RedWood.BootStrap
 
             containerBuilder.RegisterType<PhantomJSDriver>().
                 Keyed<IWebDriver>(BrowserType.PhantomJs).
-                WithParameters(new []
+                WithParameters(new[]
                 {
                     new ResolvedParameter((p,c) => 
                         p.Name == "phantomJSDriverServerDirectory",
                         (p,c) => DirProject()),
                 });
-            
+
             /* File services */
             containerBuilder.RegisterType<LocalFileService>().Keyed<IFileService>(FileServiceType.Local);
 
@@ -71,13 +76,11 @@ namespace RedWood.BootStrap
             return containerBuilder;
         }
 
-
-
         public IContainer GetContainer()
         {
             var container = GetContainerBuilder();
-          
-            if(RegistrationDelegate != null)
+
+            if (RegistrationDelegate != null)
                 RegistrationDelegate(container);
 
             return container.Build();

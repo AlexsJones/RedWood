@@ -41,6 +41,10 @@
     <Reference Include="NLog">
       <HintPath>..\packages\NLog.3.2.0.0\lib\net45\NLog.dll</HintPath>
     </Reference>
+    <Reference Include="StackExchange.Redis, Version=1.0.316.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StackExchange.Redis.1.0.414\lib\net45\StackExchange.Redis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="WebDriver">
@@ -54,10 +58,13 @@
     <Compile Include="BootStrap\IoC.cs" />
     <Compile Include="Implementation\FileService\LocalFileService.cs" />
     <Compile Include="Implementation\FileService\RemoteFileService.cs" />
+    <Compile Include="Implementation\SessionLogger\CliSessionLogger.cs" />
+    <Compile Include="Implementation\SessionLogger\RedisSessionLogger.cs" />
     <Compile Include="Interface\Driver\BrowserType.cs" />
     <Compile Include="Implementation\FileService\FileException.cs" />
     <Compile Include="Interface\FileService\FileServiceType.cs" />
     <Compile Include="Interface\FileService\IFileService.cs" />
+    <Compile Include="Interface\SessionLogger\ISessionLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
