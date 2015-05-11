@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Autofac.Features.Indexed;
+using RedWood.Implementation.SessionLogger;
 using RedWood.Interface.FileService;
 using RedWood.Interface.Reporting;
 using RedWood.Interface.SessionLogger;
@@ -16,10 +17,10 @@ namespace RedWood.Implementation.Reporting
 
         private readonly IFileService _fileService;
 
-        private string _currentSessionLogKey = null;
+        private ISessionInfo _sessionContext = null;
 
         public ReportingService(ISessionLogger sessionLogger,
-            IIndex<FileServiceType, IFileService> fileServices )
+            IIndex<FileServiceType, IFileService> fileServices)
         {
             _sessionLogger = sessionLogger;
 
@@ -29,33 +30,24 @@ namespace RedWood.Implementation.Reporting
 
         public void SetCurrentContext()
         {
-            _currentSessionLogKey = _sessionLogger.GenerateGuidDateStampKeyString();
+            _sessionContext = _sessionLogger.GenerateSessionInfo();
         }
 
         public void WriteLogMessage(string message)
         {
-            if (string.IsNullOrEmpty(_currentSessionLogKey))
-            {
-                throw new ReportingException("No Key set for reporting service!");
-            }
-           _sessionLogger.LogMessage(_currentSessionLogKey, message);
+            _sessionLogger.LogMessage(_sessionContext.GetCurrentGuidTimeString(), message);
         }
 
         public void WriteReport(string path)
         {
             string str = _fileService.ReadFile(path);
 
-            if (string.IsNullOrEmpty(_currentSessionLogKey))
+            if (_sessionContext == null)
             {
-                throw new ReportingException("No Key set for reporting service!");
+                throw new ReportingException("No session context set!");
             }
 
-            if (string.IsNullOrEmpty(str))
-            {
-                throw new ReportingException("No report file found for upload!");
-            }
-
-            _sessionLogger.LogMessage(_currentSessionLogKey,str);
+            _sessionLogger.LogMessage(_sessionContext.GetCurrentGuidTimeString(), str);
         }
 
     }

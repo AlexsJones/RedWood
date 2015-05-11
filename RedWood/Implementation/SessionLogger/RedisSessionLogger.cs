@@ -37,5 +37,6 @@ namespace RedWood.Implementation.SessionLogger
             }
             _redis.GetDatabase().StringSetAsync(key,value);
         }
+
     }
 }

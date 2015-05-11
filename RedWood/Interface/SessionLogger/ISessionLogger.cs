@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace RedWood.Interface.SessionLogger
 {
+    public interface ISessionInfo
+    {
+         string GetCurrentGuidTimeString();
+    }
     public interface ISessionLogger
     {
         void LogMessage(string key, string value);
 
-        string GenerateGuidDateStampKeyString();
+        ISessionInfo GenerateSessionInfo();
     }
 }
