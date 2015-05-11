@@ -51,6 +51,9 @@ namespace RedWoodSpecFlow
 
             reportingService.SetCurrentContext();
 
+            reportingService.WriteLogMessage(string.Format("Starting test {0}",
+                ScenarioContext.Current.ScenarioInfo.Title));
+
             ScenarioContext.Current.Set(reportingService);
 
             ScenarioContext.Current.Set(container);
@@ -64,7 +67,8 @@ namespace RedWoodSpecFlow
         {
             ScenarioContext.Current.Get<IWebDriver>().Close();
 
-            ScenarioContext.Current.Get<IReportingService>().WriteLogMessage("Session Complete!");
+            ScenarioContext.Current.Get<IReportingService>().WriteLogMessage("Test done");
+
         }
     }
 }

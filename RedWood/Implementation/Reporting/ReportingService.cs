@@ -45,6 +45,11 @@ namespace RedWood.Implementation.Reporting
         {
             string str = _fileService.ReadFile(path);
 
+            if (string.IsNullOrEmpty(_currentSessionLogKey))
+            {
+                throw new ReportingException("No Key set for reporting service!");
+            }
+
             if (string.IsNullOrEmpty(str))
             {
                 throw new ReportingException("No report file found for upload!");
