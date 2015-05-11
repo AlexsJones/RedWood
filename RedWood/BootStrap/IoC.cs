@@ -14,8 +14,10 @@ using OpenQA.Selenium.PhantomJS;
 using RedWood.Interface.Driver;
 using System.Configuration;
 using RedWood.Implementation.FileService;
+using RedWood.Implementation.Reporting;
 using RedWood.Implementation.SessionLogger;
 using RedWood.Interface.FileService;
+using RedWood.Interface.Reporting;
 using RedWood.Interface.SessionLogger;
 
 namespace RedWood.BootStrap
@@ -72,6 +74,9 @@ namespace RedWood.BootStrap
             containerBuilder.RegisterType<LocalFileService>().Keyed<IFileService>(FileServiceType.Local);
 
             containerBuilder.RegisterType<RemoteFileService>().Keyed<IFileService>(FileServiceType.Remote);
+
+            /* Reporting */
+            containerBuilder.RegisterType<ReportingService>().As<IReportingService>();
 
             return containerBuilder;
         }

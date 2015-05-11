@@ -8,6 +8,7 @@ using OpenQA.Selenium;
 using RedWood;
 using RedWood.BootStrap;
 using RedWood.Interface.Driver;
+using RedWood.Interface.Reporting;
 using RedWood.Interface.SessionLogger;
 using TechTalk.SpecFlow;
 
@@ -46,16 +47,16 @@ namespace RedWoodSpecFlow
 
             var webDriver = container.ResolveKeyed<IWebDriver>(b);
 
-            var sessionLogger = container.Resolve<ISessionLogger>();
+            var reportingService = container.Resolve<IReportingService>();
+
+            reportingService.SetCurrentContext();
+
+            ScenarioContext.Current.Set(reportingService);
 
             ScenarioContext.Current.Set(container);
 
-            ScenarioContext.Current.Set(sessionLogger);
-
             ScenarioContext.Current.Set(webDriver);
 
-            sessionLogger.LogMessage(string.Format("Starting scenario => {0}",
-                ScenarioContext.Current.ScenarioInfo.Title));
         }
 
         [AfterScenario]
@@ -63,9 +64,7 @@ namespace RedWoodSpecFlow
         {
             ScenarioContext.Current.Get<IWebDriver>().Close();
 
-            ScenarioContext.Current.Get<ISessionLogger>().LogMessage(
-                string.Format("Starting scenario => {0}",
-    ScenarioContext.Current.ScenarioInfo.Title));
+            ScenarioContext.Current.Get<IReportingService>().WriteLogMessage("Session Complete!");
         }
     }
 }

@@ -21,7 +21,7 @@ namespace RedWood.Implementation.SessionLogger
                         (a,b) => "192.168.22.186:6379"), 
                 });
      */
-    public class RedisSessionLogger : ISessionLogger
+    public class RedisSessionLogger : SessionLogger, ISessionLogger
     {
         private readonly ConnectionMultiplexer _redis = null;
 
@@ -29,20 +29,13 @@ namespace RedWood.Implementation.SessionLogger
         {
             _redis = ConnectionMultiplexer.Connect(connectionString);
         }
-        public void LogMessage(string message)
+        public void LogMessage(string key, string value)
         {
             if (_redis == null)
             {
                 throw new NotImplementedException("Redis session logger has not implemented connection string in constructor");
             }
-            _redis.GetDatabase().StringSetAsync(GenerateGuidDateStampKeyString(),
-                message);
-        }
-
-        public string GenerateGuidDateStampKeyString()
-        {
-            return string.Format("{0}:{1}", Guid.NewGuid()
-                 , (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds);
+            _redis.GetDatabase().StringSetAsync(key,value);
         }
     }
 }

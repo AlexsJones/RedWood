@@ -58,12 +58,16 @@
     <Compile Include="BootStrap\IoC.cs" />
     <Compile Include="Implementation\FileService\LocalFileService.cs" />
     <Compile Include="Implementation\FileService\RemoteFileService.cs" />
+    <Compile Include="Implementation\Reporting\ReportingException.cs" />
+    <Compile Include="Implementation\Reporting\ReportingService.cs" />
     <Compile Include="Implementation\SessionLogger\CliSessionLogger.cs" />
     <Compile Include="Implementation\SessionLogger\RedisSessionLogger.cs" />
+    <Compile Include="Implementation\SessionLogger\SessionLogger.cs" />
     <Compile Include="Interface\Driver\BrowserType.cs" />
     <Compile Include="Implementation\FileService\FileException.cs" />
     <Compile Include="Interface\FileService\FileServiceType.cs" />
     <Compile Include="Interface\FileService\IFileService.cs" />
+    <Compile Include="Interface\Reporting\IReportingService.cs" />
     <Compile Include="Interface\SessionLogger\ISessionLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -74,6 +78,7 @@
   <ItemGroup>
     <Content Include="phantomjs.exe" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>

@@ -8,7 +8,7 @@ namespace RedWood.Interface.SessionLogger
 {
     public interface ISessionLogger
     {
-        void LogMessage(string message);
+        void LogMessage(string key, string value);
 
         string GenerateGuidDateStampKeyString();
     }
