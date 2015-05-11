@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using RedWood.Interface.FileService;
 
 namespace RedWood.Implementation.FileService
@@ -8,6 +9,15 @@ namespace RedWood.Implementation.FileService
         public bool DoesFileExist(string url)
         {
             return File.Exists(url);
+        }
+
+        public string ReadFile(string url)
+        {
+            using (StreamReader sr = new StreamReader(url))
+            {
+                String line = sr.ReadToEnd();
+                return line;
+            }
         }
     }
 }

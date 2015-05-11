@@ -14,8 +14,14 @@ namespace RedWood.Implementation.SessionLogger
         {
             Debug.WriteLine("[{0}][{1}]:{2}",
                 DateTime.Now.ToUniversalTime(),
-                Guid.NewGuid().ToString(),
+                GenerateGuidDateStampKeyString(),
                 message);
+        }
+
+        public string GenerateGuidDateStampKeyString()
+        {
+            return string.Format("{0}:{1}", Guid.NewGuid()
+                 , (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds);
         }
     }
 }

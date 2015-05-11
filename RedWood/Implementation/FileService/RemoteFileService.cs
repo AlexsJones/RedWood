@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using RedWood.Interface.FileService;
 
 namespace RedWood.Implementation.FileService
@@ -26,6 +27,11 @@ namespace RedWood.Implementation.FileService
             {
                 return false;
             }
+        }
+
+        public string ReadFile(string url)
+        {
+            throw new NotImplementedException("No Readfile for remote file service currently implemented!");
         }
     }
 }
