@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Autofac;
+using Autofac.Core;
 using OpenQA.Selenium;
 using RedWood;
 using RedWood.BootStrap;
+using RedWood.Implementation.SessionLogger;
 using RedWood.Interface.Driver;
 using RedWood.Interface.Reporting;
 using RedWood.Interface.SessionLogger;
@@ -36,16 +38,23 @@ namespace RedWoodSpecFlow
             }
         }
 
+        private void LoadElasticSearch(ContainerBuilder c)
+        {
+
+        }
         [BeforeScenario]
         public void BeforeScenario()
         {
             var ioc = new IoC();
+
+            ioc.RegistrationDelegate += LoadElasticSearch;
 
             var container = ioc.GetContainer();
 
             BrowserType b = ParseEnum(ScenarioContext.Current.ScenarioInfo.Tags.First(), BrowserType.Firefox);
 
             var webDriver = container.ResolveKeyed<IWebDriver>(b);
+
 
             var reportingService = container.Resolve<IReportingService>();
 

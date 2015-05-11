@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace RedWood.Interface.SessionLogger
 {
-    public interface ISessionLogger
+    public interface ISessionDto
     {
-        void LogObject(ISessionDto dto);
+        Guid Key { get; set; }
 
+        string Value { get; set; }
+
+        DateTime LogSubmissionTime { get; set; }
     }
 }

@@ -8,12 +8,11 @@ using RedWood.Interface.SessionLogger;
 
 namespace RedWood.Implementation.SessionLogger
 {
-    class CliSessionLogger : SessionLogger, ISessionLogger
-    {
-        public void LogMessage(string key, string value)
+    class CliSessionLogger : ISessionLogger
+    {    
+        public void LogObject(ISessionDto dto)
         {
-            Debug.WriteLine("[{0}][{1}]:{2}",
-                DateTime.Now.ToUniversalTime(),key,value);
+            Debug.WriteLine("Logging Session DTO [{0}]", dto);
         }
     }
 }

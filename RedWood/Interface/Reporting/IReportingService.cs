@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using RedWood.Interface.SessionLogger;
 
 namespace RedWood.Interface.Reporting
 {
@@ -14,5 +15,9 @@ namespace RedWood.Interface.Reporting
         void WriteLogMessage(string message);
 
         void WriteReport(string path);
+
+        void WriteObject(ISessionDto dto);
+
+        ISessionDto GetReportingSessionDto();
     }
 }

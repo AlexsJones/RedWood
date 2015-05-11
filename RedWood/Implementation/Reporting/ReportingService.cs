@@ -17,7 +17,7 @@ namespace RedWood.Implementation.Reporting
 
         private readonly IFileService _fileService;
 
-        private ISessionInfo _sessionContext = null;
+        private Guid _sessionContext;
 
         public ReportingService(ISessionLogger sessionLogger,
             IIndex<FileServiceType, IFileService> fileServices)
@@ -30,12 +30,28 @@ namespace RedWood.Implementation.Reporting
 
         public void SetCurrentContext()
         {
-            _sessionContext = _sessionLogger.GenerateSessionInfo();
+            _sessionContext = Guid.NewGuid();
+        }
+
+        public ISessionDto GetReportingSessionDto()
+        {
+            return new ReportingSessionDto();
         }
 
         public void WriteLogMessage(string message)
         {
-            _sessionLogger.LogMessage(_sessionContext.GetCurrentGuidTimeString(), message);
+            ISessionDto dto = GetReportingSessionDto();
+
+            dto.Key = _sessionContext;
+            dto.Value = message;
+            dto.LogSubmissionTime = DateTime.Now; ;
+
+            _sessionLogger.LogObject(dto);
+        }
+
+        public void WriteObject(ISessionDto dto)
+        {
+            _sessionLogger.LogObject(dto);
         }
 
         public void WriteReport(string path)
@@ -47,7 +63,13 @@ namespace RedWood.Implementation.Reporting
                 throw new ReportingException("No session context set!");
             }
 
-            _sessionLogger.LogMessage(_sessionContext.GetCurrentGuidTimeString(), str);
+            ISessionDto dto = GetReportingSessionDto();
+
+            dto.Key = _sessionContext;
+            dto.Value = str;
+            dto.LogSubmissionTime = DateTime.Now; 
+
+            _sessionLogger.LogObject(dto);
         }
 
     }

@@ -38,6 +38,18 @@
     <Reference Include="Autofac.Extras.NLog">
       <HintPath>..\packages\Autofac.Extras.NLog.1.2.3\lib\net45\Autofac.Extras.NLog.dll</HintPath>
     </Reference>
+    <Reference Include="Elasticsearch.Net, Version=1.0.0.0, Culture=neutral, PublicKeyToken=96c599bbe3e70f5d, processorArchitecture=MSIL">
+      <HintPath>..\packages\Elasticsearch.Net.1.5.0\lib\net45\Elasticsearch.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=96c599bbe3e70f5d, processorArchitecture=MSIL">
+      <HintPath>..\packages\NEST.1.5.0\lib\net45\Nest.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="NLog">
       <HintPath>..\packages\NLog.3.2.0.0\lib\net45\NLog.dll</HintPath>
     </Reference>
@@ -60,14 +72,15 @@
     <Compile Include="Implementation\FileService\RemoteFileService.cs" />
     <Compile Include="Implementation\Reporting\ReportingException.cs" />
     <Compile Include="Implementation\Reporting\ReportingService.cs" />
+    <Compile Include="Implementation\Reporting\ReportingSessionDto.cs" />
     <Compile Include="Implementation\SessionLogger\CliSessionLogger.cs" />
-    <Compile Include="Implementation\SessionLogger\RedisSessionLogger.cs" />
-    <Compile Include="Implementation\SessionLogger\SessionLogger.cs" />
+    <Compile Include="Implementation\SessionLogger\ElasticSearchLogger.cs" />
     <Compile Include="Interface\Driver\BrowserType.cs" />
     <Compile Include="Implementation\FileService\FileException.cs" />
     <Compile Include="Interface\FileService\FileServiceType.cs" />
     <Compile Include="Interface\FileService\IFileService.cs" />
     <Compile Include="Interface\Reporting\IReportingService.cs" />
+    <Compile Include="Interface\SessionLogger\ISessionDto.cs" />
     <Compile Include="Interface\SessionLogger\ISessionLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
