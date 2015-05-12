@@ -89,6 +89,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Implementation\SessionLogger\ElasticSearchMapping\ReportingSessionDTOMapping.txt" />
     <Content Include="phantomjs.exe" />
   </ItemGroup>
   <ItemGroup />

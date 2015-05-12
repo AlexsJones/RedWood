@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Nest;
 
 namespace RedWood.Interface.SessionLogger
 {
     public interface ISessionDto
     {
-        Guid Key { get; set; }
+         Guid Key { get; set; }
 
-        string TestName { get; set; }
+         string TestName { get; set; }
 
-        string Value { get; set; }
+         string Value { get; set; }
 
-        DateTime LogSubmissionTime { get; set; }
+         DateTime LogSubmissionTime { get; set; }
     }
 }

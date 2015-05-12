@@ -1,0 +1,29 @@
+﻿PUT /logs
+{
+    "settings": {
+        "number_of_shards": 5,
+        "number_of_replicas": 1
+    },
+    "mappings": {
+        "send": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "testName": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+				"value": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                }
+            }
+        }
+    }
+}
+
+POST /logs/_close
+
+POST /logs/_open
