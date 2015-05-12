@@ -13,15 +13,39 @@ using OpenQA.Selenium.Opera;
 using OpenQA.Selenium.PhantomJS;
 using RedWood.Interface.Driver;
 using System.Configuration;
+using System.Linq;
+using log4net;
 using RedWood.Implementation.FileService;
-using RedWood.Implementation.Reporting;
-using RedWood.Implementation.SessionLogger;
 using RedWood.Interface.FileService;
-using RedWood.Interface.Reporting;
-using RedWood.Interface.SessionLogger;
+
 
 namespace RedWood.BootStrap
 {
+    public class ApplicationModule : Autofac.Module
+    {
+        protected override void Load(ContainerBuilder builder)
+        {
+            builder.RegisterInstance(LogManager.GetLogger("RedWoodLogger"));
+
+        }
+        protected override void AttachToComponentRegistration(Autofac.Core.IComponentRegistry componentRegistry, Autofac.Core.IComponentRegistration registration)
+        {
+
+            registration.Preparing += registration_Preparing;
+        }
+
+        static void registration_Preparing(object sender, Autofac.Core.PreparingEventArgs e)
+        {
+            var t = e.Component.Activator.LimitType;
+            e.Parameters = e.Parameters.Union(
+                new[]
+                {
+                                new ResolvedParameter((p, i) => p.ParameterType == typeof(ILog), (p, i) => LogManager.GetLogger(t))  
+                }
+                );
+        }
+    }
+
     public class IoC
     {
 
@@ -47,7 +71,6 @@ namespace RedWood.BootStrap
             var containerBuilder = new ContainerBuilder();
 
             /* Session Logger */
-            containerBuilder.RegisterType<CliSessionLogger>().As<ISessionLogger>();
 
             /* NLog module */
             containerBuilder.RegisterModule<NLogModule>();
@@ -76,7 +99,6 @@ namespace RedWood.BootStrap
             containerBuilder.RegisterType<RemoteFileService>().Keyed<IFileService>(FileServiceType.Remote);
 
             /* Reporting */
-            containerBuilder.RegisterType<ReportingService>().As<IReportingService>();
 
             return containerBuilder;
         }
@@ -87,6 +109,8 @@ namespace RedWood.BootStrap
 
             if (RegistrationDelegate != null)
                 RegistrationDelegate(container);
+
+            container.RegisterModule(new ApplicationModule());
 
             return container.Build();
         }

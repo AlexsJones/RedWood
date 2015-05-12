@@ -20,6 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C24CB7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{3FBEFCD0-0584-49DF-87F4-C299E9D0C2A5}"
 	ProjectSection(SolutionItems) = preProject
+		log4netElasticSearch.json = log4netElasticSearch.json
 		SharedAssemblyInfo.cs = SharedAssemblyInfo.cs
 	EndProjectSection
 EndProject
