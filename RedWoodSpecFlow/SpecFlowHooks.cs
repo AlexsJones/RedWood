@@ -58,7 +58,7 @@ namespace RedWoodSpecFlow
 
             var reportingService = container.Resolve<IReportingService>();
 
-            reportingService.SetCurrentContext();
+            reportingService.SetCurrentContext(ScenarioContext.Current.ScenarioInfo.Title);
 
             reportingService.WriteLogMessage(string.Format("Starting test {0}",
                 ScenarioContext.Current.ScenarioInfo.Title));
