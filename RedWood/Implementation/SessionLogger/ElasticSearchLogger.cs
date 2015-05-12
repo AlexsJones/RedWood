@@ -50,7 +50,6 @@ namespace RedWood.Implementation.SessionLogger
                 Debug.WriteLine("Log Message exception {0}", e.Message);
             }
         }
-
     }
 
 }

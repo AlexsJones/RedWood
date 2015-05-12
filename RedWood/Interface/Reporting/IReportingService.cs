@@ -10,7 +10,7 @@ namespace RedWood.Interface.Reporting
 {
     public interface IReportingService
     {
-        void SetCurrentContext();
+        void SetCurrentContext(string contextIdentifier);
 
         void WriteLogMessage(string message);
 

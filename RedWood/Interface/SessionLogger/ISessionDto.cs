@@ -10,6 +10,8 @@ namespace RedWood.Interface.SessionLogger
     {
         Guid Key { get; set; }
 
+        string TestName { get; set; }
+
         string Value { get; set; }
 
         DateTime LogSubmissionTime { get; set; }

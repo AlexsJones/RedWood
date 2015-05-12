@@ -19,6 +19,8 @@ namespace RedWood.Implementation.Reporting
 
         private Guid _sessionContext;
 
+        private string _currentContextName = null;
+
         public ReportingService(ISessionLogger sessionLogger,
             IIndex<FileServiceType, IFileService> fileServices)
         {
@@ -28,9 +30,11 @@ namespace RedWood.Implementation.Reporting
 
         }
 
-        public void SetCurrentContext()
+        public void SetCurrentContext(string contextIdentifier)
         {
             _sessionContext = Guid.NewGuid();
+
+            _currentContextName = contextIdentifier;
         }
 
         public ISessionDto GetReportingSessionDto()
@@ -45,6 +49,8 @@ namespace RedWood.Implementation.Reporting
             dto.Key = _sessionContext;
             dto.Value = message;
             dto.LogSubmissionTime = DateTime.Now; ;
+            dto.TestName = string.IsNullOrEmpty(_currentContextName) ?
+                string.Empty : _currentContextName; 
 
             _sessionLogger.LogObject(dto);
         }
@@ -67,7 +73,9 @@ namespace RedWood.Implementation.Reporting
 
             dto.Key = _sessionContext;
             dto.Value = str;
-            dto.LogSubmissionTime = DateTime.Now; 
+            dto.LogSubmissionTime = DateTime.Now;
+            dto.TestName = string.IsNullOrEmpty(_currentContextName) ?
+                string.Empty : _currentContextName; 
 
             _sessionLogger.LogObject(dto);
         }
