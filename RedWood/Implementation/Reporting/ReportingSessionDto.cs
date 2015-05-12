@@ -10,13 +10,10 @@ namespace RedWood.Implementation.Reporting
 {
     public class ReportingSessionDto : ISessionDto
     {
-        [ElasticProperty(Index = FieldIndexOption.NotAnalyzed, Store = true)]
         public Guid Key { get; set; }
 
-        [ElasticProperty(Index = FieldIndexOption.NotAnalyzed, Store = true)]
-        public string TestName { get; set; }
+        public string Name { get; set; }
 
-        [ElasticProperty(Index = FieldIndexOption.NotAnalyzed, Store = true)]
         public string Value { get; set; }
 
         public DateTime LogSubmissionTime { get; set; }

@@ -7,11 +7,15 @@
     "mappings": {
         "send": {
             "properties": {
+			   "logSubmissionTime": {
+                    "type": "date",
+                    "format": "dateOptionalTime"
+                },
                 "key": {
                     "type": "string",
                     "index": "not_analyzed"
                 },
-                "testName": {
+                "name": {
                     "type": "string",
                     "index": "not_analyzed"
                 },

@@ -49,7 +49,7 @@ namespace RedWood.Implementation.Reporting
             dto.Key = _sessionContext;
             dto.Value = message;
             dto.LogSubmissionTime = DateTime.Now; ;
-            dto.TestName = string.IsNullOrEmpty(_currentContextName) ?
+            dto.Name = string.IsNullOrEmpty(_currentContextName) ?
                 string.Empty : _currentContextName; 
 
             _sessionLogger.LogObject(dto);
@@ -74,7 +74,7 @@ namespace RedWood.Implementation.Reporting
             dto.Key = _sessionContext;
             dto.Value = str;
             dto.LogSubmissionTime = DateTime.Now;
-            dto.TestName = string.IsNullOrEmpty(_currentContextName) ?
+            dto.Name = string.IsNullOrEmpty(_currentContextName) ?
                 string.Empty : _currentContextName; 
 
             _sessionLogger.LogObject(dto);

@@ -11,7 +11,7 @@ namespace RedWood.Interface.SessionLogger
     {
          Guid Key { get; set; }
 
-         string TestName { get; set; }
+         string Name { get; set; }
 
          string Value { get; set; }
 
