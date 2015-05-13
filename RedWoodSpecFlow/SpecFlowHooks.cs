@@ -5,13 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Autofac;
 using Autofac.Core;
+using log4net;
 using OpenQA.Selenium;
 using RedWood;
 using RedWood.BootStrap;
-using RedWood.Implementation.SessionLogger;
 using RedWood.Interface.Driver;
-using RedWood.Interface.Reporting;
-using RedWood.Interface.SessionLogger;
 using TechTalk.SpecFlow;
 
 namespace RedWoodSpecFlow
@@ -55,16 +53,6 @@ namespace RedWoodSpecFlow
 
             var webDriver = container.ResolveKeyed<IWebDriver>(b);
 
-
-            var reportingService = container.Resolve<IReportingService>();
-
-            reportingService.SetCurrentContext(ScenarioContext.Current.ScenarioInfo.Title);
-
-            reportingService.WriteLogMessage(string.Format("Starting test {0}",
-                ScenarioContext.Current.ScenarioInfo.Title));
-
-            ScenarioContext.Current.Set(reportingService);
-
             ScenarioContext.Current.Set(container);
 
             ScenarioContext.Current.Set(webDriver);
@@ -75,8 +63,6 @@ namespace RedWoodSpecFlow
         public void AfterScenario()
         {
             ScenarioContext.Current.Get<IWebDriver>().Close();
-
-            ScenarioContext.Current.Get<IReportingService>().WriteLogMessage("Test done");
 
         }
     }

@@ -98,8 +98,6 @@ namespace RedWood.BootStrap
 
             containerBuilder.RegisterType<RemoteFileService>().Keyed<IFileService>(FileServiceType.Remote);
 
-            /* Reporting */
-
             return containerBuilder;
         }
 

@@ -1,3 +1,6 @@
+
+// Use with PUT /log and /log-
+
 {
   "settings": {
     "index": {

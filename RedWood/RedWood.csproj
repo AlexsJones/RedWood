@@ -42,6 +42,14 @@
       <HintPath>..\packages\Elasticsearch.Net.1.5.0\lib\net45\Elasticsearch.Net.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net.ElasticSearch, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.ElasticSearch.2.2.0\lib\net45\log4net.ElasticSearch.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Nest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=96c599bbe3e70f5d, processorArchitecture=MSIL">
       <HintPath>..\packages\NEST.1.5.0\lib\net45\Nest.dll</HintPath>
       <Private>True</Private>
@@ -70,18 +78,10 @@
     <Compile Include="BootStrap\IoC.cs" />
     <Compile Include="Implementation\FileService\LocalFileService.cs" />
     <Compile Include="Implementation\FileService\RemoteFileService.cs" />
-    <Compile Include="Implementation\Reporting\ReportingException.cs" />
-    <Compile Include="Implementation\Reporting\ReportingService.cs" />
-    <Compile Include="Implementation\Reporting\ReportingSessionDto.cs" />
-    <Compile Include="Implementation\SessionLogger\CliSessionLogger.cs" />
-    <Compile Include="Implementation\SessionLogger\ElasticSearchLogger.cs" />
     <Compile Include="Interface\Driver\BrowserType.cs" />
     <Compile Include="Implementation\FileService\FileException.cs" />
     <Compile Include="Interface\FileService\FileServiceType.cs" />
     <Compile Include="Interface\FileService\IFileService.cs" />
-    <Compile Include="Interface\Reporting\IReportingService.cs" />
-    <Compile Include="Interface\SessionLogger\ISessionDto.cs" />
-    <Compile Include="Interface\SessionLogger\ISessionLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -89,7 +89,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Implementation\SessionLogger\ElasticSearchMapping\ReportingSessionDTOMapping.txt" />
+    <Content Include="..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.Net4.dll">
+      <Link>AutoMapper.Net4.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="phantomjs.exe" />
   </ItemGroup>
   <ItemGroup />
