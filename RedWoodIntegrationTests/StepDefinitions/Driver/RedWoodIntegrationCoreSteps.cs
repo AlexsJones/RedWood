@@ -24,6 +24,19 @@ namespace RedWoodIntegrationTests.StepDefinitions.Driver
             var testPage = ScenarioContext.Current.Get<TestPage>();
             testPage.Visit(p0);
         }
+        [Then(@"I scroll down")]
+        public void ThenIScrollDown()
+        {
+            var testPage = ScenarioContext.Current.Get<TestPage>();
+            testPage.ScrollDown();
+        }
+        [Then(@"I scroll up")]
+        public void ThenIScrollUp()
+        {
+            var testPage = ScenarioContext.Current.Get<TestPage>();
+            testPage.ScrollUp();
+        }
+
         [Then(@"when I go back")]
         public void ThenWhenIGoBack()
         {

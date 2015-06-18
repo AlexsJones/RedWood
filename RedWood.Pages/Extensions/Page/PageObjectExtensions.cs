@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+
 using RedWood.Pages.Interface.Page;
 
 namespace RedWood.Pages.Extensions.Page
@@ -33,6 +34,16 @@ namespace RedWood.Pages.Extensions.Page
         public static void ClickOn(this Implementation.Page.Page page,By by)
         {
             page.Driver.FindElement(by).Click();
+        }
+
+        public static void ScrollUp(this Implementation.Page.Page page)
+        {
+            ((IJavaScriptExecutor)page.Driver).ExecuteScript("window.scrollBy(0,-250)", "");
+        }
+
+        public static void ScrollDown(this Implementation.Page.Page page)
+        {
+            ((IJavaScriptExecutor)page.Driver).ExecuteScript("window.scrollBy(0,250)", "");
         }
 
         public static void Back(this Implementation.Page.Page page)

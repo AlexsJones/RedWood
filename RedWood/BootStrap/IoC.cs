@@ -25,12 +25,10 @@ namespace RedWood.BootStrap
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterInstance(LogManager.GetLogger("RedWoodLogger"));
-
+            builder.RegisterInstance(LogManager.GetLogger("RedWoodFileLogger"));
         }
         protected override void AttachToComponentRegistration(Autofac.Core.IComponentRegistry componentRegistry, Autofac.Core.IComponentRegistration registration)
         {
-
             registration.Preparing += registration_Preparing;
         }
 
@@ -40,7 +38,7 @@ namespace RedWood.BootStrap
             e.Parameters = e.Parameters.Union(
                 new[]
                 {
-                                new ResolvedParameter((p, i) => p.ParameterType == typeof(ILog), (p, i) => LogManager.GetLogger(t))  
+                    new ResolvedParameter((p, i) => p.ParameterType == typeof(ILog), (p, i) => LogManager.GetLogger(t))  
                 }
                 );
         }

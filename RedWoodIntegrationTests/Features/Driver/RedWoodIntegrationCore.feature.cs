@@ -86,11 +86,11 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Navigate forward and backward")]
-        [NUnit.Framework.CategoryAttribute("PhantomJs")]
+        [NUnit.Framework.CategoryAttribute("Firefox")]
         public virtual void NavigateForwardAndBackward()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate forward and backward", new string[] {
-                        "PhantomJs"});
+                        "Firefox"});
 #line 11
 this.ScenarioSetup(scenarioInfo);
 #line 12
@@ -104,6 +104,10 @@ this.ScenarioSetup(scenarioInfo);
 #line 16
  testRunner.And("when I go back", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 17
+ testRunner.And("I scroll down", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 18
+ testRunner.And("I scroll up", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 19
  testRunner.Then("the page title should be Homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
