@@ -10,6 +10,10 @@ namespace RedWood.Pages.Interface.Page
         {
             ByType = type;
         }
+        public override string ToString()
+        {
+            return ByType.ToString();
+        }
     }
 
     public interface IPage

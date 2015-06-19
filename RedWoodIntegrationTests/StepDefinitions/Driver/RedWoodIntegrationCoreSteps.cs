@@ -47,7 +47,7 @@ namespace RedWoodIntegrationTests.StepDefinitions.Driver
         public void WhenClickOn(string p0)
         {
             var testPage = ScenarioContext.Current.Get<TestPage>();
-            testPage.FindElement(By.PartialLinkText(p0), TimeSpan.FromSeconds(3));
+            testPage.FindElement(By.PartialLinkText(p0), TimeSpan.FromSeconds(5));
             testPage.ClickOn(By.PartialLinkText(p0));
         }
         [Then(@"the page title should be (.*)")]

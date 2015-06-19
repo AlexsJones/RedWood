@@ -77,8 +77,25 @@ namespace RedWood.BootStrap
             containerBuilder.RegisterType<FirefoxDriver>().Keyed<IWebDriver>(BrowserType.Firefox);
 
             containerBuilder.RegisterType<OperaDriver>().Keyed<IWebDriver>(BrowserType.Opera);
-
-            containerBuilder.RegisterType<InternetExplorerDriver>().Keyed<IWebDriver>(BrowserType.InternetExplorer);
+            /*
+             * Additionally, "Enhanced Protected Mode" must be disabled for IE 10 and higher. 
+             * This option is found in the Advanced tab of the Internet Options dialog.
+               The browser zoom level must be set to 100% so that the native mouse events can be set to the correct coordinates.
+               For IE 11 only, you will need to set a registry entry on the target computer so that the driver can maintain a connection
+             * to the instance of Internet Explorer it creates. For 32-bit Windows installations, 
+             * the key you must examine in the registry editor is 
+             * HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BFCACHE. 
+             * For 64-bit Windows installations, the key is HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BFCACHE. 
+             * Please note that the FEATURE_BFCACHE subkey may or may not be present, and should be created if it is not present. 
+             * Important: Inside this key, create a DWORD value named iexplore.exe with the value of 0. 
+             * */
+            containerBuilder.RegisterType<InternetExplorerDriver>().Keyed<IWebDriver>(BrowserType.InternetExplorer).
+                 WithParameters(new[]
+                {
+                    new ResolvedParameter((p,c) => 
+                        p.Name == "internetExplorerDriverServerDirectory",
+                        (p,c) => DirProject()),
+                });
 
             containerBuilder.RegisterType<ChromeDriver>().Keyed<IWebDriver>(BrowserType.Chrome);
 
