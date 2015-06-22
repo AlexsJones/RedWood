@@ -79,7 +79,6 @@ namespace RedWood.Pages.Extensions.Page
             }
             return true;
         }
-
         public static string ResolveFullUrl(this Implementation.Page.Page page, string baseUrl)
         {
             return Path.Combine(baseUrl, page.Url);
