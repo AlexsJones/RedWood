@@ -5,6 +5,10 @@ namespace RedWood.Pages.Implementation.Page
 {
     public class Page : IPage
     {
+        public delegate void TearDownDelegate(IPage page);
+
+        public TearDownDelegate teardownDelegate = null;
+
         private IWebDriver _driver = null;
 
         private readonly KeyIdentifier[] _keyIdentifiers = null;
@@ -68,6 +72,14 @@ namespace RedWood.Pages.Implementation.Page
             Driver = driver;
             Url = url;
             _keyIdentifiers = identifiers;
+        }
+
+        public void TearDown()
+        {
+            if (teardownDelegate != null)
+            {
+                teardownDelegate(this);
+            }
         }
     }
 }
