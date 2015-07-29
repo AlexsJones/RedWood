@@ -43,6 +43,8 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Serialization" />
     <Reference Include="WebDriver">
       <HintPath>..\packages\Selenium.WebDriver.2.45.0\lib\net40\WebDriver.dll</HintPath>
     </Reference>
@@ -55,6 +57,8 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Extensions\Page\PageObjectExtensions.cs" />
+    <Compile Include="Implementation\Page\Expando.cs" />
+    <Compile Include="Implementation\Page\DynamicPage.cs" />
     <Compile Include="Implementation\Page\PageConfiguration.cs" />
     <Compile Include="Implementation\Page\PageException.cs" />
     <Compile Include="Interface\Page\IPage.cs" />
