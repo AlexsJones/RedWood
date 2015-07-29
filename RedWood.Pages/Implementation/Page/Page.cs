@@ -3,7 +3,7 @@ using RedWood.Pages.Interface.Page;
 
 namespace RedWood.Pages.Implementation.Page
 {
-    public class Page : IPage
+    public class Page : Expando, IPage
     {
         public delegate void TearDownDelegate(IPage page);
 
@@ -56,18 +56,18 @@ namespace RedWood.Pages.Implementation.Page
             ;
         }
 
-        public Page(IWebDriver driver)
+        public Page(IWebDriver driver): base()
         {
             Driver = driver;
             Url = null;
         }
-        public Page(IWebDriver driver,string url)
+        public Page(IWebDriver driver,string url): base()
         {
             Driver = driver;
             Url = url;
         }
 
-        public Page(IWebDriver driver, string url, KeyIdentifier[] identifiers)
+        public Page(IWebDriver driver, string url, KeyIdentifier[] identifiers): base()
         {
             Driver = driver;
             Url = url;
