@@ -96,8 +96,14 @@ namespace RedWood.BootStrap
                         p.Name == "internetExplorerDriverServerDirectory",
                         (p,c) => DirProject()),
                 });
-
-            containerBuilder.RegisterType<ChromeDriver>().Keyed<IWebDriver>(BrowserType.Chrome);
+ 
+            containerBuilder.RegisterType<ChromeDriver>().Keyed<IWebDriver>(BrowserType.Chrome).WithParameters(
+                new[]
+                {
+                    new ResolvedParameter((p,c) =>
+                        p.Name == "chromeDriverDirectory",
+                        (p,c) => DirProject()),
+                });
 
             containerBuilder.RegisterType<PhantomJSDriver>().
                 Keyed<IWebDriver>(BrowserType.PhantomJs).
