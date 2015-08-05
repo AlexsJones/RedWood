@@ -17,7 +17,7 @@ using System.Linq;
 using log4net;
 using RedWood.Implementation.FileService;
 using RedWood.Interface.FileService;
-
+ 
 
 namespace RedWood.BootStrap
 {
@@ -53,15 +53,7 @@ namespace RedWood.BootStrap
 
         public string DirProject()
         {
-            string dirDebug = System.IO.Directory.GetCurrentDirectory();
-            var dirProject = dirDebug;
-
-            for (int counter_slash = 0; counter_slash < 2; counter_slash++)
-            {
-                dirProject = dirProject.Substring(0, dirProject.LastIndexOf(@"\"));
-            }
-
-            return dirProject;
+            return Directory.GetCurrentDirectory();
         }
 
         ContainerBuilder GetContainerBuilder()
@@ -96,8 +88,14 @@ namespace RedWood.BootStrap
                         p.Name == "internetExplorerDriverServerDirectory",
                         (p,c) => DirProject()),
                 });
-
-            containerBuilder.RegisterType<ChromeDriver>().Keyed<IWebDriver>(BrowserType.Chrome);
+ 
+            containerBuilder.RegisterType<ChromeDriver>().Keyed<IWebDriver>(BrowserType.Chrome).WithParameters(
+                new[]
+                {
+                    new ResolvedParameter((p,c) =>
+                        p.Name == "chromeDriverDirectory",
+                        (p,c) => DirProject()),
+                });
 
             containerBuilder.RegisterType<PhantomJSDriver>().
                 Keyed<IWebDriver>(BrowserType.PhantomJs).
