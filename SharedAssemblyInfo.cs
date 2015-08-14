@@ -8,11 +8,11 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(true)]
-[assembly: AssemblyVersion("1.0.0.33")]
+[assembly: AssemblyVersion("1.0.0.34")]
 // By default, the "Product version" shown in the file properties window is
 // the same as the value specified for AssemblyFileVersionAttribute.
 // Set AssemblyInformationalVersionAttribute to be the same as
 // AssemblyVersionAttribute so that the "Product version" in the file
 // properties window matches the version displayed in the GAC shell extension.
-[assembly: AssemblyInformationalVersion("1.0.0.33")] // a.k.a. "Product version"
+[assembly: AssemblyInformationalVersion("1.0.0.34")] // a.k.a. "Product version"
 [assembly: log4net.Config.XmlConfigurator(Watch = true)]
