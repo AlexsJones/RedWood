@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using RedWood.Interface.FileService;
 
@@ -86,11 +87,15 @@ namespace RedWood.Implementation.FileService
             foreach (var subdir in dirs)
             {
                 var temppath = Path.Combine(bpath, subdir.Name);
+
                 if (ignoreHidden)
                 {
-                    DirectoryInfo info = new DirectoryInfo(temppath);
-
-                    if (!info.Attributes.HasFlag(FileAttributes.Hidden))
+                   
+                    if ((subdir.Attributes & FileAttributes.Hidden) == FileAttributes.Hidden)
+                    {
+                        Debug.WriteLine("Ignoring hidden directory => " + temppath);
+                    }
+                    else
                     {
                         CopyDirectory(subdir.FullName, temppath, ignoreHidden);
                     }
