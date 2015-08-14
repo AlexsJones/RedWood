@@ -67,7 +67,7 @@ namespace RedWoodTests
         [Test]
         public void TestWindowsFileSystemCopyToLocalDirectory()
         {
-            _service.CopyDirectory(_targetRemoteFolderPath, "RemoteBuildFolder");
+            _service.CopyDirectory(_targetRemoteFolderPath, "RemoteBuildFolder", true);
 
             _service.DoesDirectoryExist("RemoteBuildFolder").Should().BeTrue();
         }
@@ -83,7 +83,7 @@ namespace RedWoodTests
         [Test]
         public void TestWindowsFileSystemDeleteRemoteFolder()
         {
-            _service.CopyDirectory(_targetRemoteFolderPath, _targetRemoteFolderCopy);
+            _service.CopyDirectory(_targetRemoteFolderPath, _targetRemoteFolderCopy, true);
          
             _service.DoesDirectoryExist(_targetRemoteFolderCopy);
 

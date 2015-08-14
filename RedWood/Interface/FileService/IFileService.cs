@@ -13,7 +13,7 @@
 
         void CopyFile(string apath, string bpath);
 
-        void CopyDirectory(string apath, string bpath);
+        void CopyDirectory(string apath, string bpath, bool ignoreHidden);
 
         bool DeleteFile(string path);
 

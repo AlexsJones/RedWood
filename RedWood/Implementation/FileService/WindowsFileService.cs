@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Linq;
 using RedWood.Interface.FileService;
 
 namespace RedWood.Implementation.FileService
@@ -43,7 +44,7 @@ namespace RedWood.Implementation.FileService
             File.Copy(apath, bpath, true);
         }
 
-        public void CopyDirectory(string apath, string bpath)
+        public void CopyDirectory(string apath, string bpath, bool ignoreHidden)
         {
             if (FetchType(apath) != FileServiceFileType.Directory)
             {
@@ -68,6 +69,14 @@ namespace RedWood.Implementation.FileService
 
             var files = dir.GetFiles();
 
+            if (ignoreHidden)
+            {
+                var filtered = files.Select(f => f)
+                    .Where(f => (f.Attributes & FileAttributes.Hidden) == 0);
+
+                files = filtered.ToArray();
+            }
+  
             foreach (var file in files)
             {
                 var temppath = Path.Combine(bpath, file.Name);
@@ -77,7 +86,7 @@ namespace RedWood.Implementation.FileService
             foreach (var subdir in dirs)
             {
                 var temppath = Path.Combine(bpath, subdir.Name);
-                CopyDirectory(subdir.FullName, temppath);
+                CopyDirectory(subdir.FullName, temppath, ignoreHidden);
             }
         }
 

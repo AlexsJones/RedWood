@@ -49,7 +49,7 @@ namespace RedWood.Implementation.FileService
             throw new NotImplementedException();
         }
 
-        public void CopyDirectory(string apath, string bpath)
+        public void CopyDirectory(string apath, string bpath, bool ignoreHidden)
         {
             throw new NotImplementedException();
         }
