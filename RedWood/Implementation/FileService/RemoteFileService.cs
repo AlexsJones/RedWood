@@ -4,23 +4,28 @@ using RedWood.Interface.FileService;
 
 namespace RedWood.Implementation.FileService
 {
-    class RemoteFileService : IFileService
+    public class RemoteFileService : IFileService
     {
-        public bool DoesFileExist(string url)
+        public FileServiceFileType FetchType(string path)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DoesFileExist(string path)
         {
             try
             {
-                var request = WebRequest.Create(url) as HttpWebRequest;
+                var request = WebRequest.Create(path) as HttpWebRequest;
                 if (request != null)
                 {
                     request.Method = "GET";
                     var response = request.GetResponse() as HttpWebResponse;
-                    // ReSharper disable once PossibleNullReferenceException
-                    return (response.StatusCode == HttpStatusCode.OK);
+
+                    return response != null && (response.StatusCode == HttpStatusCode.OK);
                 }
                 else
                 {
-                    throw new FileException("Could not generate web request from url: " + url);
+                    throw new FileException("Could not generate web request from path: " + path);
                 }
             }
             catch
@@ -29,9 +34,34 @@ namespace RedWood.Implementation.FileService
             }
         }
 
-        public string ReadFile(string url)
+        public bool DoesDirectoryExist(string path)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string ReadFile(string path)
         {
             throw new NotImplementedException("No Readfile for remote file service currently implemented!");
+        }
+
+        public void CopyFile(string apath, string bpath)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CopyDirectory(string apath, string bpath)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DeleteFile(string path)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DeleteDirectory(string path)
+        {
+            throw new NotImplementedException();
         }
     }
 }

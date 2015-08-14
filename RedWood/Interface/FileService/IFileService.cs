@@ -1,9 +1,22 @@
 ﻿namespace RedWood.Interface.FileService
 {
+    
     public interface IFileService
     {
-        bool DoesFileExist(string url);
+        FileServiceFileType FetchType(string path);
 
-        string ReadFile(string url);
+        bool DoesFileExist(string path);
+
+        bool DoesDirectoryExist(string path);
+
+        string ReadFile(string path);
+
+        void CopyFile(string apath, string bpath);
+
+        void CopyDirectory(string apath, string bpath);
+
+        bool DeleteFile(string path);
+
+        bool DeleteDirectory(string path);
     }
 }

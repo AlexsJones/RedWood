@@ -6,15 +6,8 @@ using System.Threading.Tasks;
 
 namespace RedWood.Interface.FileService
 {
-    public enum FileServiceType
+    public interface IFileServiceConfiguration
     {
-        Remote,
-        Windows
-    }
-
-    public enum FileServiceFileType
-    {
-        File,
-        Directory
+        string FetchRemoteMachinePath();
     }
 }

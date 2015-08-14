@@ -77,12 +77,14 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="BootStrap\IoC.cs" />
-    <Compile Include="Implementation\FileService\LocalFileService.cs" />
+    <Compile Include="Implementation\FileService\WindowsFileServiceConfiguration.cs" />
     <Compile Include="Implementation\FileService\RemoteFileService.cs" />
+    <Compile Include="Implementation\FileService\WindowsFileService.cs" />
     <Compile Include="Interface\Driver\BrowserType.cs" />
     <Compile Include="Implementation\FileService\FileException.cs" />
     <Compile Include="Interface\FileService\FileServiceType.cs" />
     <Compile Include="Interface\FileService\IFileService.cs" />
+    <Compile Include="Interface\FileService\IFileServiceConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -111,7 +113,6 @@
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
     <Error Condition="!Exists('..\packages\StyleCop.MSBuild.4.7.49.1\build\StyleCop.MSBuild.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\StyleCop.MSBuild.4.7.49.1\build\StyleCop.MSBuild.Targets'))" />
   </Target>
-  <Import Project="..\packages\StyleCop.MSBuild.4.7.49.1\build\StyleCop.MSBuild.Targets" Condition="Exists('..\packages\StyleCop.MSBuild.4.7.49.1\build\StyleCop.MSBuild.Targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
