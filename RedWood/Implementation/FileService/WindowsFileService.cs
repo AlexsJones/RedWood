@@ -86,7 +86,19 @@ namespace RedWood.Implementation.FileService
             foreach (var subdir in dirs)
             {
                 var temppath = Path.Combine(bpath, subdir.Name);
-                CopyDirectory(subdir.FullName, temppath, ignoreHidden);
+                if (ignoreHidden)
+                {
+                    DirectoryInfo info = new DirectoryInfo(temppath);
+
+                    if (!info.Attributes.HasFlag(FileAttributes.Hidden))
+                    {
+                        CopyDirectory(subdir.FullName, temppath, ignoreHidden);
+                    }
+                }
+                else
+                {
+                    CopyDirectory(subdir.FullName, temppath, ignoreHidden);
+                }
             }
         }
 
