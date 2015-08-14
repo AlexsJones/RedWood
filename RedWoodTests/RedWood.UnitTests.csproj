@@ -84,6 +84,7 @@
   <ItemGroup>
     <Compile Include="CoreTests.cs" />
     <Compile Include="FileServiceTests.cs" />
+    <Compile Include="ProcessServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -80,11 +80,15 @@
     <Compile Include="Implementation\FileService\WindowsFileServiceConfiguration.cs" />
     <Compile Include="Implementation\FileService\RemoteFileService.cs" />
     <Compile Include="Implementation\FileService\WindowsFileService.cs" />
+    <Compile Include="Implementation\Process\ProcessConfiguration.cs" />
+    <Compile Include="Implementation\Process\ProcessService.cs" />
     <Compile Include="Interface\Driver\BrowserType.cs" />
     <Compile Include="Implementation\FileService\FileException.cs" />
     <Compile Include="Interface\FileService\FileServiceType.cs" />
     <Compile Include="Interface\FileService\IFileService.cs" />
     <Compile Include="Interface\FileService\IFileServiceConfiguration.cs" />
+    <Compile Include="Interface\Process\IProcessConfiguration.cs" />
+    <Compile Include="Interface\Process\IProcessService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -105,6 +109,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
