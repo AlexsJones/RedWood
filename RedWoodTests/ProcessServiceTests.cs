@@ -38,12 +38,12 @@ namespace RedWoodTests
         }
 
         [Test]
-        public void TestStartProcessAsync()
+        public void TestStartProcessSync()
         {
             ProcessConfiguration c = new ProcessConfiguration("Notepad.exe");
 
             int pid;
-            _service.RunProcessASynchronous(c, out pid);
+            _service.RunProcessSynchronous(c, out pid);
 
            _service.KillProcess(pid);
         }
