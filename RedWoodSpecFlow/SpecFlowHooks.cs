@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,9 +48,17 @@ namespace RedWoodSpecFlow
         {
             var ioc = new IoC();
 
-            e.RegisterType<FirefoxDriver>().Keyed<IWebDriver>(BrowserType.Firefox);
+            e.RegisterType<FirefoxDriver>().Keyed<IWebDriver>(BrowserType.Firefox).WithParameters(
+                new[]
+                {
+                    new ResolvedParameter((p,c) =>
+                        p.Name == "binary",
+                        (p,c) => new FirefoxBinary("C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe")),
 
-            e.RegisterType<OperaDriver>().Keyed<IWebDriver>(BrowserType.Opera);
+                        new ResolvedParameter((p,c) =>
+                        p.Name == "profile",
+                        (p,c) => new FirefoxProfile()),
+                });
 
             e.RegisterType<InternetExplorerDriver>().Keyed<IWebDriver>(BrowserType.InternetExplorer).
                  WithParameters(new[]
@@ -91,6 +100,8 @@ namespace RedWoodSpecFlow
             BrowserType b = ParseEnum(ScenarioContext.Current.ScenarioInfo.Tags.First(), BrowserType.Firefox);
 
             var webDriver = container.ResolveKeyed<IWebDriver>(b);
+
+            webDriver.Manage().Window.Maximize();
 
             ScenarioContext.Current.Set(container);
 

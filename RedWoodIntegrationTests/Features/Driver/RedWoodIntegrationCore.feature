@@ -7,6 +7,7 @@ Scenario: Navigate to a webpage
 	Given I have a web browser
 	When I navigate to http://google.com
 	Then the page title should be Google
+
 @Firefox
 Scenario: Navigate forward and backward
 	Given I have a web browser
@@ -16,5 +17,5 @@ Scenario: Navigate forward and backward
 	And when I go back
 	And I scroll down
 	And I scroll up
-	Then the page title should be Homepage
+	Then the page title should be Home - BBC News
 	

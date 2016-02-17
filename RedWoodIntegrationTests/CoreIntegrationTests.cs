@@ -23,49 +23,13 @@ namespace RedWoodIntegrationTests
         [Test]
         public void BasicHeadlessDriverUsage()
         {
-            var ioc = new IoC();
 
-            ioc.RegistrationDelegate += (e) =>
-            {
-                e.RegisterType<FirefoxDriver>().Keyed<IWebDriver>(BrowserType.Firefox);
 
-                e.RegisterType<OperaDriver>().Keyed<IWebDriver>(BrowserType.Opera);
-
-                e.RegisterType<InternetExplorerDriver>().Keyed<IWebDriver>(BrowserType.InternetExplorer).
-                     WithParameters(new[]
-                    {
-                    new ResolvedParameter((p,c) =>
-                        p.Name == "internetExplorerDriverServerDirectory",
-                        (p,c) => ioc.DirProject()),
-                    });
-
-                e.RegisterType<ChromeDriver>().Keyed<IWebDriver>(BrowserType.Chrome).WithParameters(
-                    new[]
-                    {
-                    new ResolvedParameter((p,c) =>
-                        p.Name == "chromeDriverDirectory",
-                        (p,c) => ioc.DirProject()),
-                    });
-
-                e.RegisterType<PhantomJSDriver>().
-                    Keyed<IWebDriver>(BrowserType.PhantomJs).
-                    WithParameters(new[]
-                    {
-                    new ResolvedParameter((p,c) =>
-                        p.Name == "phantomJSDriverServerDirectory",
-                        (p,c) => ioc.DirProject()),
-                    });
-                e.RegisterType<WindowsFileService>().Keyed<IFileService>(FileServiceType.Windows);
-
-                e.RegisterType<RemoteFileService>().Keyed<IFileService>(FileServiceType.Remote);
-
-            };
-
-            var container = new IoC().GetContainer();
-            var headless = container.ResolveKeyed<IWebDriver>(BrowserType.Firefox);
+            var headless = new FirefoxDriver(new FirefoxBinary("C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe"),new FirefoxProfile());
             headless.Navigate().GoToUrl("http://www.google.com");
             Assert.AreEqual(headless.Title,"Google");
             headless.Quit();
+
         }
     }
 }
