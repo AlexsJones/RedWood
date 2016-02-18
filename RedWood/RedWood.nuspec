@@ -32,5 +32,9 @@
       <dependency id="StyleCop.MSBuild" version="4.7.49.1"   />
       <dependency id="System.IO.Abstractions" version="2.0.0.107"  />
     </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Drawing" targetFramework="net40" />
+      <frameworkAssembly assemblyName="System.configuration" targetFramework="net40" />
+    </frameworkAssemblies>
   </metadata>
 </package>
