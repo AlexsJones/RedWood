@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="RedWood.Pages" Label="RedWood.Pages" Category="Project" />
+    <Node Id="Selenium.WebDriver 2.52.0" Label="Selenium.WebDriver 2.52.0" Category="Package" />
+    <Node Id="Selenium.WebDriver.PhantomJS.Xplatform 2.45.0.1" Label="Selenium.WebDriver.PhantomJS.Xplatform 2.45.0.1" Category="Package" />
+    <Node Id="Selenium.WebDriverBackedSelenium 2.52.0" Label="Selenium.WebDriverBackedSelenium 2.52.0" Category="Package" />
+    <Node Id="RedWood.SpecFlow" Label="RedWood.SpecFlow" Category="Project" />
+    <Node Id="Autofac 3.5.2" Label="Autofac 3.5.2" Category="Package" />
+    <Node Id="Selenium.WebDriver 2.52.0" Label="Selenium.WebDriver 2.52.0" Category="Package" />
+    <Node Id="Selenium.WebDriver.PhantomJS.Xplatform 2.45.0.1" Label="Selenium.WebDriver.PhantomJS.Xplatform 2.45.0.1" Category="Package" />
+    <Node Id="Selenium.WebDriverBackedSelenium 2.52.0" Label="Selenium.WebDriverBackedSelenium 2.52.0" Category="Package" />
+    <Node Id="SpecFlow 1.9.0" Label="SpecFlow 1.9.0" Category="Package" />
+    <Node Id="RedWood.IntegrationTests" Label="RedWood.IntegrationTests" Category="Project" />
+    <Node Id="Autofac 3.5.2" Label="Autofac 3.5.2" Category="Package" />
+    <Node Id="FluentAssertions 3.3.0" Label="FluentAssertions 3.3.0" Category="Package" />
+    <Node Id="log4net 2.0.3" Label="log4net 2.0.3" Category="Package" />
+    <Node Id="log4net.ElasticSearch 2.2.0" Label="log4net.ElasticSearch 2.2.0" Category="Package" />
+    <Node Id="NUnit 2.6.4" Label="NUnit 2.6.4" Category="Package" />
+    <Node Id="Selenium.WebDriver 2.52.0" Label="Selenium.WebDriver 2.52.0" Category="Package" />
+    <Node Id="Selenium.WebDriver.PhantomJS.Xplatform 2.45.0.1" Label="Selenium.WebDriver.PhantomJS.Xplatform 2.45.0.1" Category="Package" />
+    <Node Id="Selenium.WebDriverBackedSelenium 2.52.0" Label="Selenium.WebDriverBackedSelenium 2.52.0" Category="Package" />
+    <Node Id="SpecFlow 1.9.0" Label="SpecFlow 1.9.0" Category="Package" />
+    <Node Id="SpecFlow.NUnit 1.1.1" Label="SpecFlow.NUnit 1.1.1" Category="Package" />
+    <Node Id="RedWood.UnitTests" Label="RedWood.UnitTests" Category="Project" />
+    <Node Id="Autofac 3.5.2" Label="Autofac 3.5.2" Category="Package" />
+    <Node Id="FluentAssertions 3.3.0" Label="FluentAssertions 3.3.0" Category="Package" />
+    <Node Id="NSubstitute 1.8.1.0" Label="NSubstitute 1.8.1.0" Category="Package" />
+    <Node Id="NUnit 3.0.0-alpha-5" Label="NUnit 3.0.0-alpha-5" Category="Package" />
+    <Node Id="RedWood" Label="RedWood" Category="Project" />
+    <Node Id="Autofac 3.5.2" Label="Autofac 3.5.2" Category="Package" />
+    <Node Id="Autofac.Extras.NLog 1.2.3" Label="Autofac.Extras.NLog 1.2.3" Category="Package" />
+    <Node Id="AutoMapper 3.1.1" Label="AutoMapper 3.1.1" Category="Package" />
+    <Node Id="Elasticsearch.Net 1.5.0" Label="Elasticsearch.Net 1.5.0" Category="Package" />
+    <Node Id="log4net 2.0.3" Label="log4net 2.0.3" Category="Package" />
+    <Node Id="log4net.ElasticSearch 2.2.0" Label="log4net.ElasticSearch 2.2.0" Category="Package" />
+    <Node Id="NEST 1.5.0" Label="NEST 1.5.0" Category="Package" />
+    <Node Id="Newtonsoft.Json 6.0.1" Label="Newtonsoft.Json 6.0.1" Category="Package" />
+    <Node Id="NLog 3.2.0.0" Label="NLog 3.2.0.0" Category="Package" />
+    <Node Id="NUnit 2.6.0.12054" Label="NUnit 2.6.0.12054" Category="Package" />
+    <Node Id="NUnitTestAdapter 1.2" Label="NUnitTestAdapter 1.2" Category="Package" />
+    <Node Id="RestSharp 104.2.0" Label="RestSharp 104.2.0" Category="Package" />
+    <Node Id="Selenium.RC 2.52.0" Label="Selenium.RC 2.52.0" Category="Package" />
+    <Node Id="Selenium.Support 2.52.0" Label="Selenium.Support 2.52.0" Category="Package" />
+    <Node Id="Selenium.WebDriver 2.52.0" Label="Selenium.WebDriver 2.52.0" Category="Package" />
+    <Node Id="Selenium.WebDriver.PhantomJS.Xplatform 2.45.0.1" Label="Selenium.WebDriver.PhantomJS.Xplatform 2.45.0.1" Category="Package" />
+    <Node Id="Selenium.WebDriverBackedSelenium 2.52.0" Label="Selenium.WebDriverBackedSelenium 2.52.0" Category="Package" />
+    <Node Id="SeleniumNUnitSpecflow 1.0.4" Label="SeleniumNUnitSpecflow 1.0.4" Category="Package" />
+    <Node Id="SpecFlow 2.0.0" Label="SpecFlow 2.0.0" Category="Package" />
+    <Node Id="SpecFlow.NUnit 1.1.1" Label="SpecFlow.NUnit 1.1.1" Category="Package" />
+    <Node Id="StackExchange.Redis 1.0.414" Label="StackExchange.Redis 1.0.414" Category="Package" />
+    <Node Id="StyleCop.MSBuild 4.7.49.1" Label="StyleCop.MSBuild 4.7.49.1" Category="Package" />
+    <Node Id="System.IO.Abstractions 2.0.0.107" Label="System.IO.Abstractions 2.0.0.107" Category="Package" />
+  </Nodes>
+  <Links>
+    <Link Source="Selenium.WebDriverBackedSelenium 2.52.0" Target="Selenium.WebDriver 2.52.0" Category="Package Dependency" />
+    <Link Source="RedWood.Pages" Target="Selenium.WebDriver.PhantomJS.Xplatform 2.45.0.1" Category="Installed Package" />
+    <Link Source="RedWood.Pages" Target="Selenium.WebDriverBackedSelenium 2.52.0" Category="Installed Package" />
+    <Link Source="Selenium.WebDriverBackedSelenium 2.52.0" Target="Selenium.WebDriver 2.52.0" Category="Package Dependency" />
+    <Link Source="RedWood.SpecFlow" Target="Autofac 3.5.2" Category="Installed Package" />
+    <Link Source="RedWood.SpecFlow" Target="Selenium.WebDriver.PhantomJS.Xplatform 2.45.0.1" Category="Installed Package" />
+    <Link Source="RedWood.SpecFlow" Target="Selenium.WebDriverBackedSelenium 2.52.0" Category="Installed Package" />
+    <Link Source="RedWood.SpecFlow" Target="SpecFlow 1.9.0" Category="Installed Package" />
+    <Link Source="log4net.ElasticSearch 2.2.0" Target="log4net 2.0.3" Category="Package Dependency" />
+    <Link Source="log4net.ElasticSearch 2.2.0" Target="log4net 2.0.3" Category="Package Dependency" />
+    <Link Source="Selenium.WebDriverBackedSelenium 2.52.0" Target="Selenium.WebDriver 2.52.0" Category="Package Dependency" />
+    <Link Source="SpecFlow.NUnit 1.1.1" Target="SpecFlow 1.9.0" Category="Package Dependency" />
+    <Link Source="SpecFlow.NUnit 1.1.1" Target="NUnit 2.6.4" Category="Package Dependency" />
+    <Link Source="RedWood.IntegrationTests" Target="Autofac 3.5.2" Category="Installed Package" />
+    <Link Source="RedWood.IntegrationTests" Target="FluentAssertions 3.3.0" Category="Installed Package" />
+    <Link Source="RedWood.IntegrationTests" Target="log4net.ElasticSearch 2.2.0" Category="Installed Package" />
+    <Link Source="RedWood.IntegrationTests" Target="Selenium.WebDriver.PhantomJS.Xplatform 2.45.0.1" Category="Installed Package" />
+    <Link Source="RedWood.IntegrationTests" Target="Selenium.WebDriverBackedSelenium 2.52.0" Category="Installed Package" />
+    <Link Source="RedWood.IntegrationTests" Target="SpecFlow.NUnit 1.1.1" Category="Installed Package" />
+    <Link Source="RedWood.UnitTests" Target="Autofac 3.5.2" Category="Installed Package" />
+    <Link Source="RedWood.UnitTests" Target="FluentAssertions 3.3.0" Category="Installed Package" />
+    <Link Source="RedWood.UnitTests" Target="NSubstitute 1.8.1.0" Category="Installed Package" />
+    <Link Source="RedWood.UnitTests" Target="NUnit 3.0.0-alpha-5" Category="Installed Package" />
+    <Link Source="Autofac.Extras.NLog 1.2.3" Target="Autofac 3.5.2" Category="Package Dependency" />
+    <Link Source="Autofac.Extras.NLog 1.2.3" Target="NLog 3.2.0.0" Category="Package Dependency" />
+    <Link Source="log4net.ElasticSearch 2.2.0" Target="log4net 2.0.3" Category="Package Dependency" />
+    <Link Source="log4net.ElasticSearch 2.2.0" Target="log4net 2.0.3" Category="Package Dependency" />
+    <Link Source="NEST 1.5.0" Target="Elasticsearch.Net 1.5.0" Category="Package Dependency" />
+    <Link Source="NEST 1.5.0" Target="Newtonsoft.Json 6.0.1" Category="Package Dependency" />
+    <Link Source="Selenium.Support 2.52.0" Target="Selenium.WebDriver 2.52.0" Category="Package Dependency" />
+    <Link Source="Selenium.WebDriverBackedSelenium 2.52.0" Target="Selenium.WebDriver 2.52.0" Category="Package Dependency" />
+    <Link Source="Selenium.WebDriverBackedSelenium 2.52.0" Target="Selenium.RC 2.52.0" Category="Package Dependency" />
+    <Link Source="SeleniumNUnitSpecflow 1.0.4" Target="Selenium.Support 2.52.0" Category="Package Dependency" />
+    <Link Source="SeleniumNUnitSpecflow 1.0.4" Target="Selenium.WebDriver 2.52.0" Category="Package Dependency" />
+    <Link Source="SeleniumNUnitSpecflow 1.0.4" Target="SpecFlow 2.0.0" Category="Package Dependency" />
+    <Link Source="SeleniumNUnitSpecflow 1.0.4" Target="SpecFlow.NUnit 1.1.1" Category="Package Dependency" />
+    <Link Source="SpecFlow.NUnit 1.1.1" Target="SpecFlow 2.0.0" Category="Package Dependency" />
+    <Link Source="SpecFlow.NUnit 1.1.1" Target="NUnit 2.6.0.12054" Category="Package Dependency" />
+    <Link Source="RedWood" Target="Autofac.Extras.NLog 1.2.3" Category="Installed Package" />
+    <Link Source="RedWood" Target="AutoMapper 3.1.1" Category="Installed Package" />
+    <Link Source="RedWood" Target="log4net.ElasticSearch 2.2.0" Category="Installed Package" />
+    <Link Source="RedWood" Target="NEST 1.5.0" Category="Installed Package" />
+    <Link Source="RedWood" Target="NUnitTestAdapter 1.2" Category="Installed Package" />
+    <Link Source="RedWood" Target="RestSharp 104.2.0" Category="Installed Package" />
+    <Link Source="RedWood" Target="Selenium.WebDriver.PhantomJS.Xplatform 2.45.0.1" Category="Installed Package" />
+    <Link Source="RedWood" Target="Selenium.WebDriverBackedSelenium 2.52.0" Category="Installed Package" />
+    <Link Source="RedWood" Target="SeleniumNUnitSpecflow 1.0.4" Category="Installed Package" />
+    <Link Source="RedWood" Target="StackExchange.Redis 1.0.414" Category="Installed Package" />
+    <Link Source="RedWood" Target="StyleCop.MSBuild 4.7.49.1" Category="Installed Package" />
+    <Link Source="RedWood" Target="System.IO.Abstractions 2.0.0.107" Category="Installed Package" />
+  </Links>
+  <Categories>
+    <Category Id="Project" />
+    <Category Id="Package" />
+  </Categories>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Project" ValueLabel="True">
+      <Condition Expression="HasCategory('Project')" />
+      <Setter Property="Background" Value="Blue" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Package Dependency" ValueLabel="True">
+      <Condition Expression="HasCategory('Package Dependency')" />
+      <Setter Property="Background" Value="Yellow" />
+    </Style>
+  </Styles>
+</DirectedGraph>
