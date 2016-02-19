@@ -6,14 +6,14 @@ namespace RedWood.Implementation.FileService
     {
         public WindowsFileServiceConfiguration(string targetmachine)
         {
-            TargetMachine = targetmachine;
+            _targetMachine = targetmachine;
         }
 
-        private string TargetMachine { get; }
+        private readonly string _targetMachine;
 
         public string FetchRemoteMachinePath()
         {
-            return TargetMachine;
+            return _targetMachine;
         }
     }
 }
