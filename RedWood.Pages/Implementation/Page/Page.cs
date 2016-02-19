@@ -7,11 +7,29 @@ namespace RedWood.Pages.Implementation.Page
     {
         public delegate void TearDownDelegate(IPage page);
 
+        private readonly KeyIdentifier[] _keyIdentifiers;
+        private IWebDriver _driver;
+        private string _url;
         public TearDownDelegate teardownDelegate = null;
 
-        private IWebDriver _driver = null;
+        public Page(IWebDriver driver)
+        {
+            Driver = driver;
+            Url = null;
+        }
 
-        private readonly KeyIdentifier[] _keyIdentifiers = null;
+        public Page(IWebDriver driver, string url)
+        {
+            Driver = driver;
+            Url = url;
+        }
+
+        public Page(IWebDriver driver, string url, KeyIdentifier[] identifiers)
+        {
+            Driver = driver;
+            Url = url;
+            _keyIdentifiers = identifiers;
+        }
 
         public IWebDriver Driver
         {
@@ -23,12 +41,8 @@ namespace RedWood.Pages.Implementation.Page
                 }
                 return _driver;
             }
-            set
-            {
-                _driver = value;
-            }           
+            set { _driver = value; }
         }
-        private string _url = null;
 
         public string Url
         {
@@ -40,10 +54,7 @@ namespace RedWood.Pages.Implementation.Page
                 }
                 return _url;
             }
-            set
-            {
-                _url = value;
-            }
+            set { _url = value; }
         }
 
         public KeyIdentifier[] KeyIdentifiers()
@@ -54,24 +65,6 @@ namespace RedWood.Pages.Implementation.Page
             }
             return _keyIdentifiers;
             ;
-        }
-
-        public Page(IWebDriver driver): base()
-        {
-            Driver = driver;
-            Url = null;
-        }
-        public Page(IWebDriver driver,string url): base()
-        {
-            Driver = driver;
-            Url = url;
-        }
-
-        public Page(IWebDriver driver, string url, KeyIdentifier[] identifiers): base()
-        {
-            Driver = driver;
-            Url = url;
-            _keyIdentifiers = identifiers;
         }
 
         public void TearDown()

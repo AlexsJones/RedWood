@@ -7,25 +7,24 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
+using System.Xml.Schema;
 using System.Xml.Serialization;
 
 namespace RedWood.Pages.Implementation.Page
 {
     internal static class SerializationUtils
     {
-
         public static bool SerializeObject(object instance, string fileName, bool binarySerialization)
         {
-            bool retVal = true;
+            var retVal = true;
 
             if (!binarySerialization)
             {
                 XmlTextWriter writer = null;
                 try
                 {
-                    XmlSerializer serializer =
+                    var serializer =
                         new XmlSerializer(instance.GetType());
 
                     Stream fs = new FileStream(fileName, FileMode.Create);
@@ -58,7 +57,7 @@ namespace RedWood.Pages.Implementation.Page
 
                 try
                 {
-                    BinaryFormatter serializer = new BinaryFormatter();
+                    var serializer = new BinaryFormatter();
 
                     fs = new FileStream(fileName, FileMode.Create);
 
@@ -80,11 +79,11 @@ namespace RedWood.Pages.Implementation.Page
 
         public static bool SerializeObject(object instance, XmlTextWriter writer, bool throwExceptions)
         {
-            bool retVal = true;
+            var retVal = true;
 
             try
             {
-                XmlSerializer serializer =
+                var serializer =
                     new XmlSerializer(instance.GetType());
 
 
@@ -98,7 +97,8 @@ namespace RedWood.Pages.Implementation.Page
             }
             catch (Exception ex)
             {
-                Debug.Write("SerializeObject failed with : " + ex.GetBaseException().Message + "\r\n" + (ex.InnerException != null ? ex.InnerException.Message : ""));
+                Debug.Write("SerializeObject failed with : " + ex.GetBaseException().Message + "\r\n" +
+                            (ex.InnerException != null ? ex.InnerException.Message : ""));
 
                 if (throwExceptions)
                     throw;
@@ -118,9 +118,9 @@ namespace RedWood.Pages.Implementation.Page
         {
             xmlResultString = string.Empty;
 
-            MemoryStream ms = new MemoryStream();
+            var ms = new MemoryStream();
 
-            XmlTextWriter writer = new XmlTextWriter(ms, new UTF8Encoding());
+            var writer = new XmlTextWriter(ms, new UTF8Encoding());
 
             if (!SerializeObject(instance, writer, throwExceptions))
             {
@@ -128,7 +128,7 @@ namespace RedWood.Pages.Implementation.Page
                 return false;
             }
 
-            xmlResultString = Encoding.UTF8.GetString(ms.ToArray(), 0, (int)ms.Length);
+            xmlResultString = Encoding.UTF8.GetString(ms.ToArray(), 0, (int) ms.Length);
 
             ms.Close();
             writer.Close();
@@ -138,12 +138,12 @@ namespace RedWood.Pages.Implementation.Page
 
         public static bool SerializeObject(object instance, out byte[] resultBuffer, bool throwExceptions = false)
         {
-            bool retVal = true;
+            var retVal = true;
 
             MemoryStream ms = null;
             try
             {
-                BinaryFormatter serializer = new BinaryFormatter();
+                var serializer = new BinaryFormatter();
 
                 ms = new MemoryStream();
 
@@ -171,7 +171,7 @@ namespace RedWood.Pages.Implementation.Page
 
         public static string SerializeObjectToString(object instance, bool throwExceptions = false)
         {
-            string xmlResultString = string.Empty;
+            var xmlResultString = string.Empty;
 
             if (!SerializeObject(instance, out xmlResultString, throwExceptions))
                 return null;
@@ -194,13 +194,13 @@ namespace RedWood.Pages.Implementation.Page
             return DeSerializeObject(fileName, objectType, binarySerialization, false);
         }
 
-        public static object DeSerializeObject(string fileName, Type objectType, bool binarySerialization, bool throwExceptions)
+        public static object DeSerializeObject(string fileName, Type objectType, bool binarySerialization,
+            bool throwExceptions)
         {
             object instance = null;
 
             if (!binarySerialization)
             {
-
                 XmlReader reader = null;
 
                 XmlSerializer serializer = null;
@@ -208,7 +208,6 @@ namespace RedWood.Pages.Implementation.Page
                 FileStream fs = null;
                 try
                 {
-
                     serializer = new XmlSerializer(objectType);
 
                     fs = new FileStream(fileName, FileMode.Open);
@@ -222,7 +221,7 @@ namespace RedWood.Pages.Implementation.Page
                     if (throwExceptions)
                         throw;
 
-                    string message = ex.Message;
+                    var message = ex.Message;
 
                     return null;
                 }
@@ -237,7 +236,6 @@ namespace RedWood.Pages.Implementation.Page
             }
             else
             {
-
                 BinaryFormatter serializer = null;
 
                 FileStream fs = null;
@@ -249,7 +247,6 @@ namespace RedWood.Pages.Implementation.Page
                     fs = new FileStream(fileName, FileMode.Open);
 
                     instance = serializer.Deserialize(fs);
-
                 }
                 catch
                 {
@@ -267,9 +264,9 @@ namespace RedWood.Pages.Implementation.Page
 
         public static object DeSerializeObject(XmlReader reader, Type objectType)
         {
-            XmlSerializer serializer = new XmlSerializer(objectType);
+            var serializer = new XmlSerializer(objectType);
 
-            object Instance = serializer.Deserialize(reader);
+            var Instance = serializer.Deserialize(reader);
 
             reader.Close();
 
@@ -278,7 +275,7 @@ namespace RedWood.Pages.Implementation.Page
 
         public static object DeSerializeObject(string xml, Type objectType)
         {
-            XmlTextReader reader = new XmlTextReader(xml, XmlNodeType.Document, null);
+            var reader = new XmlTextReader(xml, XmlNodeType.Document, null);
 
             return DeSerializeObject(reader, objectType);
         }
@@ -298,7 +295,6 @@ namespace RedWood.Pages.Implementation.Page
                 ms = new MemoryStream(buffer);
 
                 Instance = serializer.Deserialize(ms);
-
             }
             catch
             {
@@ -318,17 +314,17 @@ namespace RedWood.Pages.Implementation.Page
 
         public static string ObjectToString(object instanc, string separator, ObjectToStringTypes type)
         {
-            FieldInfo[] fi = instanc.GetType().GetFields();
+            var fi = instanc.GetType().GetFields();
 
-            string output = string.Empty;
+            var output = string.Empty;
 
             if (type == ObjectToStringTypes.Properties || type == ObjectToStringTypes.PropertiesAndFields)
             {
-                foreach (PropertyInfo property in instanc.GetType().GetProperties())
+                foreach (var property in instanc.GetType().GetProperties())
                 {
                     try
                     {
-                        output += property.Name + ":" + property.GetValue(instanc, null).ToString() + separator;
+                        output += property.Name + ":" + property.GetValue(instanc, null) + separator;
                     }
                     catch
                     {
@@ -339,11 +335,11 @@ namespace RedWood.Pages.Implementation.Page
 
             if (type == ObjectToStringTypes.Fields || type == ObjectToStringTypes.PropertiesAndFields)
             {
-                foreach (FieldInfo field in fi)
+                foreach (var field in fi)
                 {
                     try
                     {
-                        output = output + field.Name + ": " + field.GetValue(instanc).ToString() + separator;
+                        output = output + field.Name + ": " + field.GetValue(instanc) + separator;
                     }
                     catch
                     {
@@ -353,7 +349,6 @@ namespace RedWood.Pages.Implementation.Page
             }
             return output;
         }
-
     }
 
     public enum ObjectToStringTypes
@@ -365,48 +360,46 @@ namespace RedWood.Pages.Implementation.Page
 
     internal static class Utilities
     {
-
         public static Type GetTypeFromName(string typeName)
         {
             Type type = null;
 
-            foreach (Assembly ass in AppDomain.CurrentDomain.GetAssemblies())
+            foreach (var ass in AppDomain.CurrentDomain.GetAssemblies())
             {
                 type = ass.GetType(typeName, false);
 
                 if (type != null)
                     break;
-
             }
             return type;
         }
 
         public static string MapTypeToXmlType(Type type)
         {
-            if (type == typeof(string) || type == typeof(char))
+            if (type == typeof (string) || type == typeof (char))
                 return "string";
-            if (type == typeof(int) || type == typeof(Int32))
+            if (type == typeof (int) || type == typeof (int))
                 return "integer";
-            if (type == typeof(long) || type == typeof(Int64))
+            if (type == typeof (long) || type == typeof (long))
                 return "long";
-            if (type == typeof(bool))
+            if (type == typeof (bool))
                 return "boolean";
-            if (type == typeof(DateTime))
+            if (type == typeof (DateTime))
                 return "datetime";
 
-            if (type == typeof(float))
+            if (type == typeof (float))
                 return "float";
-            if (type == typeof(decimal))
+            if (type == typeof (decimal))
                 return "decimal";
-            if (type == typeof(double))
+            if (type == typeof (double))
                 return "double";
-            if (type == typeof(Single))
+            if (type == typeof (float))
                 return "single";
 
-            if (type == typeof(byte))
+            if (type == typeof (byte))
                 return "byte";
 
-            if (type == typeof(byte[]))
+            if (type == typeof (byte[]))
                 return "base64Binary";
 
             return null;
@@ -417,37 +410,36 @@ namespace RedWood.Pages.Implementation.Page
             xmlType = xmlType.ToLower();
 
             if (xmlType == "string")
-                return typeof(string);
+                return typeof (string);
             if (xmlType == "integer")
-                return typeof(int);
+                return typeof (int);
             if (xmlType == "long")
-                return typeof(long);
+                return typeof (long);
             if (xmlType == "boolean")
-                return typeof(bool);
+                return typeof (bool);
             if (xmlType == "datetime")
-                return typeof(DateTime);
+                return typeof (DateTime);
             if (xmlType == "float")
-                return typeof(float);
+                return typeof (float);
             if (xmlType == "decimal")
-                return typeof(decimal);
+                return typeof (decimal);
             if (xmlType == "double")
-                return typeof(Double);
+                return typeof (double);
             if (xmlType == "single")
-                return typeof(Single);
+                return typeof (float);
 
             if (xmlType == "byte")
-                return typeof(byte);
+                return typeof (byte);
             if (xmlType == "base64binary")
-                return typeof(byte[]);
+                return typeof (byte[]);
 
             return null;
         }
-
     }
+
     [XmlRoot("properties")]
     public class PropertyBag : PropertyBag<object>
     {
-
         public new static PropertyBag CreateFromXml(string xml)
         {
             var bag = new PropertyBag();
@@ -459,17 +451,16 @@ namespace RedWood.Pages.Implementation.Page
     [XmlRoot("properties")]
     public class PropertyBag<TValue> : Dictionary<string, TValue>, IXmlSerializable
     {
-
-        public System.Xml.Schema.XmlSchema GetSchema()
+        public XmlSchema GetSchema()
         {
             return null;
         }
 
-        public void WriteXml(System.Xml.XmlWriter writer)
+        public void WriteXml(XmlWriter writer)
         {
-            foreach (string key in this.Keys)
+            foreach (var key in Keys)
             {
-                TValue value = this[key];
+                var value = this[key];
 
                 Type type = null;
                 if (value != null)
@@ -479,14 +470,14 @@ namespace RedWood.Pages.Implementation.Page
 
                 writer.WriteStartElement("key");
 
-                writer.WriteString(key as string);
+                writer.WriteString(key);
                 writer.WriteEndElement();
 
                 writer.WriteStartElement("value");
 
-                string xmlType = Utilities.MapTypeToXmlType(type);
+                var xmlType = Utilities.MapTypeToXmlType(type);
 
-                bool isCustom = false;
+                var isCustom = false;
 
                 if (value == null)
                 {
@@ -512,13 +503,12 @@ namespace RedWood.Pages.Implementation.Page
 
                 if (!isCustom)
                 {
-
                     if (value != null)
                         writer.WriteValue(value);
                 }
                 else
                 {
-                    XmlSerializer ser = new XmlSerializer(value.GetType());
+                    var ser = new XmlSerializer(value.GetType());
 
                     ser.Serialize(writer, value);
                 }
@@ -528,16 +518,16 @@ namespace RedWood.Pages.Implementation.Page
             }
         }
 
-        public void ReadXml(System.Xml.XmlReader reader)
+        public void ReadXml(XmlReader reader)
         {
-            this.Clear();
+            Clear();
             while (reader.Read())
             {
                 if (reader.NodeType == XmlNodeType.Element && reader.Name == "key")
                 {
                     string xmlType = null;
 
-                    string name = reader.ReadElementContentAsString();
+                    var name = reader.ReadElementContentAsString();
 
                     reader.ReadToNextSibling("value");
 
@@ -550,26 +540,27 @@ namespace RedWood.Pages.Implementation.Page
 
                     TValue value;
 
-                    string strval = String.Empty;
+                    var strval = string.Empty;
 
                     if (xmlType == "nil")
-                        value = default(TValue);   // null
+                        value = default(TValue); // null
 
                     else if (xmlType.StartsWith("___"))
                     {
                         while (reader.Read() && reader.NodeType != XmlNodeType.Element)
-                        { }
+                        {
+                        }
 
-                        Type type = Utilities.GetTypeFromName(xmlType.Substring(3));
+                        var type = Utilities.GetTypeFromName(xmlType.Substring(3));
 
-                        XmlSerializer ser = new XmlSerializer(type);
+                        var ser = new XmlSerializer(type);
 
-                        value = (TValue)ser.Deserialize(reader);
+                        value = (TValue) ser.Deserialize(reader);
                     }
                     else
-                        value = (TValue)reader.ReadElementContentAs(Utilities.MapXmlTypeToType(xmlType), null);
+                        value = (TValue) reader.ReadElementContentAs(Utilities.MapXmlTypeToType(xmlType), null);
 
-                    this.Add(name, value);
+                    Add(name, value);
                 }
             }
         }
@@ -585,22 +576,22 @@ namespace RedWood.Pages.Implementation.Page
 
         public bool FromXml(string xml)
         {
-            this.Clear();
+            Clear();
 
             if (string.IsNullOrEmpty(xml))
                 return true;
 
             var result = SerializationUtils.DeSerializeObject(xml,
-                                                 this.GetType()) as PropertyBag<TValue>;
+                GetType()) as PropertyBag<TValue>;
             if (result != null)
             {
                 foreach (var item in result)
                 {
-                    this.Add(item.Key, item.Value);
+                    Add(item.Key, item.Value);
                 }
             }
             else
- 
+
                 return false;
 
             return true;
@@ -615,26 +606,13 @@ namespace RedWood.Pages.Implementation.Page
             return bag;
         }
     }
+
     [Serializable]
     public class Expando : DynamicObject, IDynamicMetaObjectProvider
     {
-
-        object Instance;
-
-        Type InstanceType;
-
-        PropertyInfo[] InstancePropertyInfo
-        {
-            get
-            {
-                if (_InstancePropertyInfo == null && Instance != null)
-                    _InstancePropertyInfo = Instance.GetType().
-                        GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly);
-                return _InstancePropertyInfo;
-            }
-        }
-        PropertyInfo[] _InstancePropertyInfo;
-
+        private PropertyInfo[] _InstancePropertyInfo;
+        private object Instance;
+        private Type InstanceType;
         public PropertyBag Properties = new PropertyBag();
 
         public Expando()
@@ -645,6 +623,50 @@ namespace RedWood.Pages.Implementation.Page
         public Expando(object instance)
         {
             Initialize(instance);
+        }
+
+        private PropertyInfo[] InstancePropertyInfo
+        {
+            get
+            {
+                if (_InstancePropertyInfo == null && Instance != null)
+                    _InstancePropertyInfo = Instance.GetType().
+                        GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly);
+                return _InstancePropertyInfo;
+            }
+        }
+
+        public object this[string key]
+        {
+            get
+            {
+                try
+                {
+                    return Properties[key];
+                }
+                catch (KeyNotFoundException ex)
+                {
+                    object result = null;
+                    if (GetProperty(Instance, key, out result))
+                        return result;
+
+                    throw;
+                }
+            }
+            set
+            {
+                if (Properties.ContainsKey(key))
+                {
+                    Properties[key] = value;
+                    return;
+                }
+
+                var miArray = InstanceType.GetMember(key, BindingFlags.Public | BindingFlags.GetProperty);
+                if (miArray != null && miArray.Length > 0)
+                    SetProperty(Instance, key, value);
+                else
+                    Properties[key] = value;
+            }
         }
 
         protected virtual void Initialize(object instance)
@@ -670,7 +692,9 @@ namespace RedWood.Pages.Implementation.Page
                 {
                     return GetProperty(Instance, binder.Name, out result);
                 }
-                catch { }
+                catch
+                {
+                }
             }
 
             result = null;
@@ -679,16 +703,17 @@ namespace RedWood.Pages.Implementation.Page
 
         public override bool TrySetMember(SetMemberBinder binder, object value)
         {
-
             if (Instance != null)
             {
                 try
                 {
-                    bool result = SetProperty(Instance, binder.Name, value);
+                    var result = SetProperty(Instance, binder.Name, value);
                     if (result)
                         return true;
                 }
-                catch { }
+                catch
+                {
+                }
             }
 
 
@@ -702,11 +727,12 @@ namespace RedWood.Pages.Implementation.Page
             {
                 try
                 {
-
                     if (InvokeMethod(Instance, binder.Name, args, out result))
                         return true;
                 }
-                catch { }
+                catch
+                {
+                }
             }
 
             result = null;
@@ -718,13 +744,14 @@ namespace RedWood.Pages.Implementation.Page
             if (instance == null)
                 instance = this;
 
-            var miArray = InstanceType.GetMember(name, BindingFlags.Public | BindingFlags.GetProperty | BindingFlags.Instance);
+            var miArray = InstanceType.GetMember(name,
+                BindingFlags.Public | BindingFlags.GetProperty | BindingFlags.Instance);
             if (miArray != null && miArray.Length > 0)
             {
                 var mi = miArray[0];
                 if (mi.MemberType == MemberTypes.Property)
                 {
-                    result = ((PropertyInfo)mi).GetValue(instance, null);
+                    result = ((PropertyInfo) mi).GetValue(instance, null);
                     return true;
                 }
             }
@@ -733,20 +760,20 @@ namespace RedWood.Pages.Implementation.Page
             return false;
         }
 
-
         protected bool SetProperty(object instance, string name, object value)
         {
             if (instance == null)
                 instance = this;
 
-            var miArray = InstanceType.GetMember(name, BindingFlags.Public | BindingFlags.SetProperty | BindingFlags.Instance);
+            var miArray = InstanceType.GetMember(name,
+                BindingFlags.Public | BindingFlags.SetProperty | BindingFlags.Instance);
             if (miArray != null && miArray.Length > 0)
             {
                 var mi = miArray[0];
 
                 if (mi.MemberType == MemberTypes.Property)
                 {
-                    ((PropertyInfo)mi).SetValue(Instance, value, null);
+                    ((PropertyInfo) mi).SetValue(Instance, value, null);
                     return true;
                 }
             }
@@ -759,8 +786,8 @@ namespace RedWood.Pages.Implementation.Page
                 instance = this;
 
             var miArray = InstanceType.GetMember(name,
-                                    BindingFlags.InvokeMethod |
-                                    BindingFlags.Public | BindingFlags.Instance);
+                BindingFlags.InvokeMethod |
+                BindingFlags.Public | BindingFlags.Instance);
 
             if (miArray != null && miArray.Length > 0)
             {
@@ -775,62 +802,27 @@ namespace RedWood.Pages.Implementation.Page
             return false;
         }
 
-        public object this[string key]
-        {
-            get
-            {
-                try
-                {
-                    return Properties[key];
-                }
-                catch (KeyNotFoundException ex)
-                {
-
-                    object result = null;
-                    if (GetProperty(Instance, key, out result))
-                        return result;
-
-                    throw;
-                }
-            }
-            set
-            {
-                if (Properties.ContainsKey(key))
-                {
-                    Properties[key] = value;
-                    return;
-                }
-
-                var miArray = InstanceType.GetMember(key, BindingFlags.Public | BindingFlags.GetProperty);
-                if (miArray != null && miArray.Length > 0)
-                    SetProperty(Instance, key, value);
-                else
-                    Properties[key] = value;
-            }
-        }
-
         public IEnumerable<KeyValuePair<string, object>> GetProperties(bool includeInstanceProperties = false)
         {
             if (includeInstanceProperties && Instance != null)
             {
-                foreach (var prop in this.InstancePropertyInfo)
+                foreach (var prop in InstancePropertyInfo)
                     yield return new KeyValuePair<string, object>(prop.Name, prop.GetValue(Instance, null));
             }
 
-            foreach (var key in this.Properties.Keys)
-                yield return new KeyValuePair<string, object>(key, this.Properties[key]);
-
+            foreach (var key in Properties.Keys)
+                yield return new KeyValuePair<string, object>(key, Properties[key]);
         }
 
         public bool Contains(KeyValuePair<string, object> item, bool includeInstanceProperties = false)
         {
-            bool res = Properties.ContainsKey(item.Key);
+            var res = Properties.ContainsKey(item.Key);
             if (res)
                 return true;
 
             if (includeInstanceProperties && Instance != null)
             {
-                foreach (var prop in this.InstancePropertyInfo)
+                foreach (var prop in InstancePropertyInfo)
                 {
                     if (prop.Name == item.Key)
                         return true;
@@ -839,6 +831,5 @@ namespace RedWood.Pages.Implementation.Page
 
             return false;
         }
-
     }
 }

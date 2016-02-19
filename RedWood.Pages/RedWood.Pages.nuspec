@@ -2,16 +2,23 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>RedWood.Pages</id>
-    <version>$version$</version>
+    <version>1.0.0</version>
     <authors>jonesax</authors>
     <owners>jonesax</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>RedwoodPages</description>
     <dependencies>
-	    <dependency id="Selenium.Support" version="2.52.0"/>
-	  	<dependency id="Selenium.WebDriver" version="2.52.0"/>
-	  	<dependency id="Selenium.WebDriver.PhantomJS.Xplatform" version="2.45.0.1"/>
-	  	<dependency id="Selenium.WebDriverBackedSelenium" version="2.52.0"/>
+      <dependency id="NUnit" version="3.0.0"  />
+      <dependency id="PhantomJS" version="2.1.1"  />
+      <dependency id="Selenium.RC" version="2.52.0"  />
+      <dependency id="Selenium.Support" version="2.52.0"  />
+      <dependency id="Selenium.WebDriver" version="2.52.0"  />
+      <dependency id="Selenium.WebDriver.ChromeDriver" version="2.21.0.0"  />
+      <dependency id="Selenium.WebDriver.IEDriver" version="2.49.0.0"  />
+      <dependency id="Selenium.WebDriver.IEDriver64" version="2.48.0.1"  />
+      <dependency id="Selenium.WebDriver.PhantomJS.Xplatform" version="2.45.0.1"  />
+      <dependency id="Selenium.WebDriverBackedSelenium" version="2.52.0"  />
+      <dependency id="SpecFlow" version="2.0.0"  />
     </dependencies>
     <frameworkAssemblies>
       <frameworkAssembly assemblyName="System.Drawing" targetFramework="net40" />

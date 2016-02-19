@@ -10,6 +10,7 @@ namespace RedWood.Pages.Interface.Page
         {
             ByType = type;
         }
+
         public override string ToString()
         {
             return ByType.ToString();
@@ -18,13 +19,9 @@ namespace RedWood.Pages.Interface.Page
 
     public interface IPage
     {
-
         IWebDriver Driver { get; set; }
-
         string Url { get; set; }
-
         KeyIdentifier[] KeyIdentifiers();
-
         void TearDown();
     }
 }

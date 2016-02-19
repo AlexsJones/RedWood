@@ -4,8 +4,6 @@ using System.IO;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-using RedWood.Pages.Interface.Page;
-
 namespace RedWood.Pages.Extensions.Page
 {
     public static class PageObjectExtensions
@@ -15,13 +13,13 @@ namespace RedWood.Pages.Extensions.Page
             page.Driver.Navigate().GoToUrl(page.Url);
         }
 
-        public static void Visit(this Implementation.Page.Page page,string p0)
+        public static void Visit(this Implementation.Page.Page page, string p0)
         {
-          page.Url = p0;
-          page.Driver.Navigate().GoToUrl(page.Url);
+            page.Url = p0;
+            page.Driver.Navigate().GoToUrl(page.Url);
         }
 
-        public static void Visit(this Implementation.Page.Page page, Func<string ,string> urlModifier)
+        public static void Visit(this Implementation.Page.Page page, Func<string, string> urlModifier)
         {
             page.Driver.Navigate().GoToUrl(urlModifier.Invoke(page.Url));
         }
@@ -31,19 +29,19 @@ namespace RedWood.Pages.Extensions.Page
             page.Driver.Navigate().Refresh();
         }
 
-        public static void ClickOn(this Implementation.Page.Page page,By by)
+        public static void ClickOn(this Implementation.Page.Page page, By by)
         {
             page.Driver.FindElement(by).Click();
         }
 
         public static void ScrollUp(this Implementation.Page.Page page)
         {
-            ((IJavaScriptExecutor)page.Driver).ExecuteScript("window.scrollBy(0,-250)", "");
+            ((IJavaScriptExecutor) page.Driver).ExecuteScript("window.scrollBy(0,-250)", "");
         }
 
         public static void ScrollDown(this Implementation.Page.Page page)
         {
-            ((IJavaScriptExecutor)page.Driver).ExecuteScript("window.scrollBy(0,250)", "");
+            ((IJavaScriptExecutor) page.Driver).ExecuteScript("window.scrollBy(0,250)", "");
         }
 
         public static void Back(this Implementation.Page.Page page)
@@ -57,7 +55,7 @@ namespace RedWood.Pages.Extensions.Page
         }
 
         public static IWebElement FindElement(this Implementation.Page.Page page, By by, TimeSpan timeoutInSeconds)
-        {       
+        {
             var wait = new WebDriverWait(page.Driver, timeoutInSeconds);
             return wait.Until(driver => driver.FindElement(by));
         }
@@ -79,6 +77,7 @@ namespace RedWood.Pages.Extensions.Page
             }
             return true;
         }
+
         public static string ResolveFullUrl(this Implementation.Page.Page page, string baseUrl)
         {
             return Path.Combine(baseUrl, page.Url);
