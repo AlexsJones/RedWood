@@ -1,9 +1,8 @@
-﻿using OpenQA.Selenium;
-using RedWood.Pages.Implementation.Page;
-using System;
-using TechTalk.SpecFlow;
-using System.Dynamic;
+﻿using System;
 using FluentAssertions;
+using OpenQA.Selenium;
+using RedWood.Pages.Implementation.Page;
+using TechTalk.SpecFlow;
 
 namespace RedWoodIntegrationTests.StepDefinitions.DynamicPages
 {
@@ -13,8 +12,7 @@ namespace RedWoodIntegrationTests.StepDefinitions.DynamicPages
         [Given(@"I have created a dynamic page")]
         public void GivenIHaveCreatedADynamicPage()
         {
-
-            DynamicPage dp = new DynamicPage(ScenarioContext.Current.Get<IWebDriver>());
+            var dp = new DynamicPage(ScenarioContext.Current.Get<IWebDriver>());
 
             ScenarioContext.Current.Add("dynamicPage", dp);
         }
@@ -22,18 +20,15 @@ namespace RedWoodIntegrationTests.StepDefinitions.DynamicPages
         [Given(@"I create a dynamic method")]
         public void GivenICreateADynamicMethod()
         {
-            var dp = (dynamic)ScenarioContext.Current.Get<DynamicPage>("dynamicPage");
+            var dp = (dynamic) ScenarioContext.Current.Get<DynamicPage>("dynamicPage");
 
-            dp.TestMethod  = (Func<string, string>) ((string name) => 
-            {
-                return "Returned Successfully: " + name;
-            });
+            dp.TestMethod = (Func<string, string>) ((string name) => { return "Returned Successfully: " + name; });
         }
 
         [Then(@"the expando object should work correctly when I execute it")]
         public void ThenTheExpandoObjectShouldWorkCorrectlyWhenIExecuteIt()
         {
-            var dp = (dynamic)ScenarioContext.Current.Get<DynamicPage>("dynamicPage");
+            var dp = (dynamic) ScenarioContext.Current.Get<DynamicPage>("dynamicPage");
 
             var ret = dp.TestMethod("Hello");
 
@@ -41,6 +36,5 @@ namespace RedWoodIntegrationTests.StepDefinitions.DynamicPages
 
             isTrue.Should().BeTrue();
         }
-
     }
 }

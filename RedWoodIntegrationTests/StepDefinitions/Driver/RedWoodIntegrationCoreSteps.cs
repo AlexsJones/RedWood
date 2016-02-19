@@ -1,8 +1,6 @@
 ﻿using System;
-using Autofac;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using RedWood.Interface.Driver;
 using RedWood.Pages.Extensions.Page;
 using RedWoodIntegrationTests.Pages;
 using TechTalk.SpecFlow;
@@ -15,21 +13,24 @@ namespace RedWoodIntegrationTests.StepDefinitions.Driver
         [Given(@"I have a web browser")]
         public void GivenIHaveAWebBrowser()
         {
-           var testPage = new TestPage(ScenarioContext.Current.Get<IWebDriver>());
-           ScenarioContext.Current.Set(testPage);
+            var testPage = new TestPage(ScenarioContext.Current.Get<IWebDriver>());
+            ScenarioContext.Current.Set(testPage);
         }
+
         [When(@"I navigate to (.*)")]
         public void WhenINavigateTo(string p0)
         {
             var testPage = ScenarioContext.Current.Get<TestPage>();
             testPage.Visit(p0);
         }
+
         [Then(@"I scroll down")]
         public void ThenIScrollDown()
         {
             var testPage = ScenarioContext.Current.Get<TestPage>();
             testPage.ScrollDown();
         }
+
         [Then(@"I scroll up")]
         public void ThenIScrollUp()
         {
@@ -43,6 +44,7 @@ namespace RedWoodIntegrationTests.StepDefinitions.Driver
             var testPage = ScenarioContext.Current.Get<TestPage>();
             testPage.Back();
         }
+
         [When(@"click on (.*)")]
         public void WhenClickOn(string p0)
         {
@@ -50,11 +52,12 @@ namespace RedWoodIntegrationTests.StepDefinitions.Driver
             testPage.FindElement(By.PartialLinkText(p0), TimeSpan.FromSeconds(5));
             testPage.ClickOn(By.PartialLinkText(p0));
         }
+
         [Then(@"the page title should be (.*)")]
         public void ThenThePageTitleShouldBe(string p0)
         {
             var testPage = ScenarioContext.Current.Get<TestPage>();
-            Assert.True(testPage.Title().Contains(p0));        
+            Assert.True(testPage.Title().Contains(p0));
         }
     }
 }

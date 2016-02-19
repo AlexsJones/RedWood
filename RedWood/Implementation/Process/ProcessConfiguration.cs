@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RedWood.Interface.Process;
+﻿using RedWood.Interface.Process;
 
 namespace RedWood.Implementation.Process
 {
     public class ProcessConfiguration : IProcessConfiguration
     {
-        private readonly string _path;
-
         private readonly string _arguments;
+        private readonly string _path;
 
         public ProcessConfiguration(string path, string arguments)
         {

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RedWood.Interface.Driver
+﻿namespace RedWood.Interface.Driver
 {
     public enum BrowserType
     {
@@ -11,6 +6,6 @@ namespace RedWood.Interface.Driver
         Firefox,
         Opera,
         InternetExplorer,
-        PhantomJs,
+        PhantomJs
     }
 }

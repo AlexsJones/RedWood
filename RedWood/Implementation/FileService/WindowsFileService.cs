@@ -77,7 +77,7 @@ namespace RedWood.Implementation.FileService
 
                 files = filtered.ToArray();
             }
-  
+
             foreach (var file in files)
             {
                 var temppath = Path.Combine(bpath, file.Name);
@@ -90,7 +90,6 @@ namespace RedWood.Implementation.FileService
 
                 if (ignoreHidden)
                 {
-                   
                     if ((subdir.Attributes & FileAttributes.Hidden) == FileAttributes.Hidden)
                     {
                         Debug.WriteLine("Ignoring hidden directory => " + temppath);

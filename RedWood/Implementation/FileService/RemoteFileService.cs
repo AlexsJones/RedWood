@@ -23,10 +23,7 @@ namespace RedWood.Implementation.FileService
 
                     return response != null && (response.StatusCode == HttpStatusCode.OK);
                 }
-                else
-                {
-                    throw new FileException("Could not generate web request from path: " + path);
-                }
+                throw new FileException("Could not generate web request from path: " + path);
             }
             catch
             {

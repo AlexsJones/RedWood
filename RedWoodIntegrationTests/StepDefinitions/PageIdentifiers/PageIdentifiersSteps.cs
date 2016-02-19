@@ -1,5 +1,4 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 using FluentAssertions;
 using OpenQA.Selenium;
 using RedWood.Pages.Extensions.Page;
@@ -15,7 +14,7 @@ namespace RedWoodIntegrationTests.StepDefinitions.PageIdentifiers
         public void GivenImOn(string p0)
         {
             var webdriver = ScenarioContext.Current.Get<IWebDriver>();
-            Page p = PageConfiguration.GetPage(Assembly.GetExecutingAssembly().GetName().Name,
+            var p = PageConfiguration.GetPage(Assembly.GetExecutingAssembly().GetName().Name,
                 p0, webdriver);
             p.Visit();
 

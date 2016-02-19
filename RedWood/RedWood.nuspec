@@ -9,32 +9,41 @@
     <description>Redwoodbase</description>
     <dependencies>
       <dependency id="Autofac" version="3.5.2"  />
-      <dependency id="Autofac.Extras.NLog" version="1.2.3"  />
-      <dependency id="AutoMapper" version="3.1.1"   />
-      <dependency id="Elasticsearch.Net" version="1.5.0"   />
-      <dependency id="log4net" version="2.0.3"   />
-      <dependency id="log4net.ElasticSearch" version="2.2.0"   />
-      <dependency id="NEST" version="1.5.0"   />
-      <dependency id="Newtonsoft.Json" version="6.0.1"   />
-      <dependency id="NLog" version="3.2.0.0"   />
-      <dependency id="NUnit" version="2.6.0.12054"   />
-      <dependency id="NUnitTestAdapter" version="1.2"   />
-      <dependency id="RestSharp" version="104.2.0"   />
-      <dependency id="Selenium.RC" version="2.52.0"  />
-      <dependency id="Selenium.Support" version="2.52.0"  />
-      <dependency id="Selenium.WebDriver" version="2.52.0"  />
-      <dependency id="Selenium.WebDriver.PhantomJS.Xplatform" version="2.45.0.1"  />
-      <dependency id="Selenium.WebDriverBackedSelenium" version="2.52.0"  />
-      <dependency id="SeleniumNUnitSpecflow" version="1.0.4"   />
-      <dependency id="SpecFlow" version="2.0.0"   />
-      <dependency id="SpecFlow.NUnit" version="1.1.1"   />
-      <dependency id="StackExchange.Redis" version="1.0.414"   />
-      <dependency id="StyleCop.MSBuild" version="4.7.49.1"   />
-      <dependency id="System.IO.Abstractions" version="2.0.0.107"  />
+	  <dependency id="Autofac.Extras.NLog" version="1.2.3"  />
+	  <dependency id="AutoMapper" version="3.1.1"  />
+	  <dependency id="Elasticsearch.Net" version="1.5.0"  />
+	  <dependency id="log4net" version="2.0.3"  />
+	  <dependency id="log4net.ElasticSearch" version="2.2.0"  />
+	  <dependency id="NEST" version="1.5.0"  />
+	  <dependency id="Newtonsoft.Json" version="6.0.1"  />
+	  <dependency id="NLog" version="3.2.0.0"  />
+	  <dependency id="NUnit" version="3.0.0"  />
+	  <dependency id="NUnitTestAdapter" version="1.2"  />
+	  <dependency id="PhantomJS" version="2.1.1"/>
+	  <dependency id="RestSharp" version="104.2.0"  />
+	  <dependency id="Selenium.RC" version="2.52.0"  />
+	  <dependency id="Selenium.Support" version="2.52.0"  />
+	  <dependency id="Selenium.WebDriver" version="2.52.0"  />
+	  <dependency id="Selenium.WebDriver.ChromeDriver" version="2.21.0.0"  />
+	  <dependency id="Selenium.WebDriver.IEDriver" version="2.49.0.0"  />
+	  <dependency id="Selenium.WebDriver.IEDriver64" version="2.48.0.1"  />
+	  <dependency id="Selenium.WebDriver.PhantomJS.Xplatform" version="2.45.0.1"  />
+	  <dependency id="Selenium.WebDriverBackedSelenium" version="2.52.0"  />
+	  <dependency id="SpecFlow" version="2.0.0"  />
+	  <dependency id="SpecFlow.NUnit" version="1.1.1"  />
+	  <dependency id="StackExchange.Redis" version="1.0.414"  />
+	  <dependency id="StyleCop.MSBuild" version="4.7.49.1"  />
+	  <dependency id="System.IO.Abstractions" version="2.0.0.107"  />
     </dependencies>
     <frameworkAssemblies>
       <frameworkAssembly assemblyName="System.Drawing" targetFramework="net40" />
       <frameworkAssembly assemblyName="System.configuration" targetFramework="net40" />
     </frameworkAssemblies>
   </metadata>
+  <files>
+    <file src="..\packages\Selenium.WebDriver.IEDriver64*\driver\IEDriverServer64.exe" target="ThirdPartyDrivers" />
+    <file src="..\packages\Selenium.WebDriver.IEDriver.*\driver\IEDriverServer.exe" target="ThirdPartyDrivers" />
+    <file src="..\packages\Selenium.WebDriver.ChromeDriver.*\driver\chromedriver.exe" target="ThirdPartyDrivers" />
+    <file src="..\packages\PhantomJS*\tools\phantomjs\phantomjs.exe" target="ThirdPartyDrivers" />
+  </files>
 </package>

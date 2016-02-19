@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Reflection;
 using OpenQA.Selenium;
 using RedWood.Pages.Extensions.Page;
@@ -20,11 +19,11 @@ namespace RedWoodIntegrationTests.StepDefinitions.PageBaseModifiers
         [Given(@"I am on relative (.*)")]
         public void GivenIAmOnRelative(string p0)
         {
-            string baseUrl = (string)ScenarioContext.Current["BASE_URL"];
+            var baseUrl = (string) ScenarioContext.Current["BASE_URL"];
 
             var webdriver = ScenarioContext.Current.Get<IWebDriver>();
 
-            Page p = PageConfiguration.GetPage(Assembly.GetExecutingAssembly().GetName().Name,
+            var p = PageConfiguration.GetPage(Assembly.GetExecutingAssembly().GetName().Name,
                 p0, webdriver);
 
             p.Visit(x => new Uri(new Uri(baseUrl), p.Url).ToString());

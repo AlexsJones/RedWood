@@ -1,20 +1,9 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using Autofac;
 using Autofac.Core;
 using Autofac.Extras.NLog;
 using log4net;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.IE;
-using OpenQA.Selenium.Opera;
-using OpenQA.Selenium.PhantomJS;
-using RedWood.Implementation.FileService;
-using RedWood.Interface.Driver;
-using RedWood.Interface.FileService;
-
 
 namespace RedWood.BootStrap
 {
@@ -50,9 +39,7 @@ namespace RedWood.BootStrap
 
         public string DirProject()
         {
-
             return Directory.GetCurrentDirectory();
-
         }
 
         private ContainerBuilder GetContainerBuilder()
