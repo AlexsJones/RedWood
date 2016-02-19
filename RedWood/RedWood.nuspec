@@ -40,10 +40,4 @@
       <frameworkAssembly assemblyName="System.configuration" targetFramework="net40" />
     </frameworkAssemblies>
   </metadata>
-  <files>
-    <file src="..\packages\Selenium.WebDriver.IEDriver64*\driver\IEDriverServer64.exe" target="ThirdPartyDrivers" />
-    <file src="..\packages\Selenium.WebDriver.IEDriver.*\driver\IEDriverServer.exe" target="ThirdPartyDrivers" />
-    <file src="..\packages\Selenium.WebDriver.ChromeDriver.*\driver\chromedriver.exe" target="ThirdPartyDrivers" />
-    <file src="..\packages\PhantomJS*\tools\phantomjs\phantomjs.exe" target="ThirdPartyDrivers" />
-  </files>
 </package>
