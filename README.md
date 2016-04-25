@@ -3,7 +3,7 @@
 Is a collection of tools for UI and API testing in a BDD style (Specflow)
 It wraps most components in IoC based paradigms and has support for the concept of pages.
 
-There is an examples project that visits a google doodle page using specflow.
+There is an [examples project](https://github.com/AlexsJones/RedWood/tree/master/Example/UnitTestProject1/UnitTestProject1/Features) that visits a google doodle page using specflow.
 
 E.g.
 
