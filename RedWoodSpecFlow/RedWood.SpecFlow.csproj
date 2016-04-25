@@ -48,6 +48,10 @@
       <HintPath>..\packages\NUnit.3.2.1\lib\net45\nunit.framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Selenium.WebDriverBackedSelenium, Version=2.53.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriverBackedSelenium.2.53.0\lib\net40\Selenium.WebDriverBackedSelenium.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -55,11 +59,16 @@
       <HintPath>..\packages\SpecFlow.2.0.0\lib\net45\TechTalk.SpecFlow.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="WebDriver">
-      <HintPath>..\packages\Selenium.WebDriver.2.52.0\lib\net40\WebDriver.dll</HintPath>
+    <Reference Include="ThoughtWorks.Selenium.Core, Version=2.53.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.RC.2.53.0\lib\net40\ThoughtWorks.Selenium.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="WebDriver.Support, Version=2.52.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Selenium.Support.2.52.0\lib\net40\WebDriver.Support.dll</HintPath>
+    <Reference Include="WebDriver, Version=2.53.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.2.53.0\lib\net40\WebDriver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebDriver.Support, Version=2.53.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.2.53.0\lib\net40\WebDriver.Support.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -72,7 +81,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RedWood\RedWood.csproj">
@@ -89,7 +100,7 @@
       <Link>chromedriver.exe</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\packages\Selenium.WebDriver.IEDriver.2.49.0.0\driver\IEDriverServer.exe">
+    <Content Include="..\packages\Selenium.WebDriver.IEDriver.2.53.0.0\driver\IEDriverServer.exe">
       <Link>IEDriverServer.exe</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -133,6 +133,8 @@ namespace RedWoodTests
                 "TestPage", driver);
 
             r.Url.Should().Be("test");
+
+            driver.Quit();
         }
     }
 }

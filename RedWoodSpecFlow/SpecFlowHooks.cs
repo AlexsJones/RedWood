@@ -103,7 +103,9 @@ namespace RedWoodSpecFlow
         [AfterScenario]
         public void AfterScenario()
         {
-            ScenarioContext.Current.Get<IWebDriver>().Close();
+            ScenarioContext.Current.Get<IWebDriver>().Quit();
+
+            var w = ScenarioContext.Current.Get<IWebDriver>();
         }
     }
 }
