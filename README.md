@@ -17,3 +17,14 @@ Scenario: Visit a website
 
 The DoodlesPage is something that is retained as IPage between steps and can be downcast for more specialised functionalities
 (All pages have extensions baked in such as `.Visit()`)
+
+Pages can be resolved like so and extensions available [here](https://github.com/AlexsJones/RedWood/blob/master/RedWood.Pages/Extensions/Page/PageObjectExtensions.cs)
+
+```
+{
+	var p = ScenarioContext.Current<Page>() as LoginPage;
+	
+	p.LoginSpecificActivity();
+}
+
+```
