@@ -4,6 +4,7 @@ using NUnit.Framework;
 using RedWood.BootStrap;
 using RedWood.Implementation.FileService;
 using RedWood.Interface.FileService;
+using System.IO;
 
 namespace RedWoodTests
 {
@@ -23,9 +24,10 @@ namespace RedWoodTests
 
         private IContainer _container;
         private IFileService _service;
-        private readonly string _targetRemoteFolderPath = @"..\..\Properties";
-        private readonly string _targetRemoteFolderCopy = @"Properties";
-        private readonly string _targetRemoteFilePath = @"..\..\Properties\AssemblyInfo.cs";
+        private readonly string _targetRemoteFolderPath = TestContext.CurrentContext.TestDirectory + @"\..\..\Properties";
+        private readonly string _targetRemoteFolderCopy = TestContext.CurrentContext.TestDirectory + @"\Properties";
+        private readonly string _targetRemoteFilePath = TestContext.CurrentContext.TestDirectory + 
+            @"\..\..\Properties\AssemblyInfo.cs";
 
         [Test]
         public void TestWindowsFileSystemCopyToLocalDirectory()
@@ -68,6 +70,9 @@ namespace RedWoodTests
         [Test]
         public void TestWindowsFileSystemTypes()
         {
+
+            string solution_dir = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+
             _service.FetchType(_targetRemoteFilePath).Should().Be(FileServiceFileType.File);
 
             _service.FetchType(_targetRemoteFolderPath).Should().Be(FileServiceFileType.Directory);

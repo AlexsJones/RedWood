@@ -37,7 +37,7 @@ namespace RedWoodTests
                     {
                         new ResolvedParameter((p, c) =>
                             p.Name == "internetExplorerDriverServerDirectory",
-                            (p, c) => ioc.DirProject())
+                            (p, c) => TestContext.CurrentContext.TestDirectory)
                     });
 
                 e.RegisterType<ChromeDriver>().Keyed<IWebDriver>(BrowserType.Chrome).WithParameters(
@@ -45,7 +45,7 @@ namespace RedWoodTests
                     {
                         new ResolvedParameter((p, c) =>
                             p.Name == "chromeDriverDirectory",
-                            (p, c) => ioc.DirProject())
+                            (p, c) => TestContext.CurrentContext.TestDirectory)
                     });
 
                 e.RegisterType<PhantomJSDriver>().
@@ -54,7 +54,7 @@ namespace RedWoodTests
                     {
                         new ResolvedParameter((p, c) =>
                             p.Name == "phantomJSDriverServerDirectory",
-                            (p, c) => ioc.DirProject())
+                            (p, c) => TestContext.CurrentContext.TestDirectory)
                     });
                 e.RegisterType<WindowsFileService>().Keyed<IFileService>(FileServiceType.Windows);
 
@@ -121,7 +121,7 @@ namespace RedWoodTests
 
             fs = _container.ResolveKeyed<IFileService>(FileServiceType.Windows);
 
-            fs.DoesFileExist("RedWood.dll").Should().BeTrue();
+            fs.DoesFileExist(TestContext.CurrentContext.TestDirectory + @"\RedWood.dll").Should().BeTrue();
         }
 
         [Test]
