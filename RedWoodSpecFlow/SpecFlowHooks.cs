@@ -12,6 +12,7 @@ using RedWood.Implementation.FileService;
 using RedWood.Interface.Driver;
 using RedWood.Interface.FileService;
 using TechTalk.SpecFlow;
+using NUnit.Framework;
 
 namespace RedWoodSpecFlow
 {
@@ -56,7 +57,7 @@ namespace RedWoodSpecFlow
                 {
                     new ResolvedParameter((p, c) =>
                         p.Name == "internetExplorerDriverServerDirectory",
-                        (p, c) => ioc.DirProject())
+                        (p, c) => TestContext.CurrentContext.TestDirectory)
                 });
 
             e.RegisterType<ChromeDriver>().Keyed<IWebDriver>(BrowserType.Chrome).WithParameters(
@@ -64,7 +65,7 @@ namespace RedWoodSpecFlow
                 {
                     new ResolvedParameter((p, c) =>
                         p.Name == "chromeDriverDirectory",
-                        (p, c) => ioc.DirProject())
+                        (p, c) => TestContext.CurrentContext.TestDirectory)
                 });
 
             e.RegisterType<PhantomJSDriver>().
@@ -73,7 +74,7 @@ namespace RedWoodSpecFlow
                 {
                     new ResolvedParameter((p, c) =>
                         p.Name == "phantomJSDriverServerDirectory",
-                        (p, c) => ioc.DirProject())
+                        (p, c) => TestContext.CurrentContext.TestDirectory)
                 });
             e.RegisterType<WindowsFileService>().Keyed<IFileService>(FileServiceType.Windows);
 
