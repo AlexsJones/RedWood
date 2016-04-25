@@ -15,7 +15,5 @@ Scenario: Navigate forward and backward
 	And click on News
 	Then the page title should be News
 	And when I go back
-	And I scroll down
-	And I scroll up
 	Then the page title should be Home - BBC News
 	
