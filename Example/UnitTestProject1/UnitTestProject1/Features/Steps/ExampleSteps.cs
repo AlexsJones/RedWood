@@ -20,8 +20,8 @@ namespace UnitTestProject1.Features.Steps
         }
 
         [Given(@"I visit the subpage (.*)"),
- When(@"I visit the subpage (.*)"),
- Then(@"I visit the subpage (.*)")]
+        When(@"I visit the subpage (.*)"),
+        Then(@"I visit the subpage (.*)")]
         public void GivenIVisitTheSubPage(string p0)
         {
             var webdriver = ScenarioContext.Current.Get<IWebDriver>();
@@ -44,7 +44,7 @@ namespace UnitTestProject1.Features.Steps
         }
 
         [Given(@"I am on the right page"),
-            When(@"I am on the right page"),
+        When(@"I am on the right page"),
         Then(@"I am on the right page")]
         public void ThenIAmOn()
         {

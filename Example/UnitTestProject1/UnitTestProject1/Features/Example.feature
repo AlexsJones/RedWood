@@ -8,3 +8,9 @@ Scenario: Visit a website
 	Given I have a base service URL http://www.google.com
 	And I visit the subpage DoodlesPage
 	Then I am on the right page
+
+@Chrome
+Scenario: Visit a website with Chrome
+	Given I have a base service URL http://www.google.com
+	And I visit the subpage DoodlesPage
+	Then I am on the right page

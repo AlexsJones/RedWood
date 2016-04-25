@@ -2,6 +2,7 @@
 using Autofac.Core;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.PhantomJS;
 using RedWood.BootStrap;
 using RedWood.Implementation.FileService;
@@ -52,6 +53,14 @@ namespace UnitTestProject1
                     new ResolvedParameter((p, d) =>
                         p.Name == "phantomJSDriverServerDirectory",
                         (p, d) => TestContext.CurrentContext.TestDirectory)
+                 });
+
+                cont.RegisterType<ChromeDriver>().Keyed<IWebDriver>(BrowserType.Chrome).WithParameters(
+                 new[]
+                {
+                    new ResolvedParameter((p, e) =>
+                        p.Name == "chromeDriverDirectory",
+                        (p, e) => TestContext.CurrentContext.TestDirectory)
                  });
 
                 cont.RegisterType<WindowsFileService>().Keyed<IFileService>(FileServiceType.Windows);
