@@ -66,11 +66,11 @@ namespace RedWoodIntegrationTests.Features.DynamicPages
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Dynamic Page add method")]
-        [NUnit.Framework.CategoryAttribute("Firefox")]
+        [NUnit.Framework.CategoryAttribute("PhantomJs")]
         public virtual void DynamicPageAddMethod()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Dynamic Page add method", new string[] {
-                        "Firefox"});
+                        "PhantomJs"});
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7

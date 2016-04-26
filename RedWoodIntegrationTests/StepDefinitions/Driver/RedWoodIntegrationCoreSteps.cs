@@ -21,6 +21,7 @@ namespace RedWoodIntegrationTests.StepDefinitions.Driver
         public void WhenINavigateTo(string p0)
         {
             var testPage = ScenarioContext.Current.Get<TestPage>();
+
             testPage.Visit(p0);
         }
 
@@ -57,6 +58,11 @@ namespace RedWoodIntegrationTests.StepDefinitions.Driver
         public void ThenThePageTitleShouldBe(string p0)
         {
             var testPage = ScenarioContext.Current.Get<TestPage>();
+
+            testPage.AwaitPageLoad(5);
+
+            var title = testPage.Title();
+
             Assert.True(testPage.Title().Contains(p0));
         }
     }

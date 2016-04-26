@@ -61,6 +61,7 @@ namespace RedWood.BootStrap
 
             container.RegisterModule(new ApplicationModule());
 
+
             return container.Build();
         }
     }

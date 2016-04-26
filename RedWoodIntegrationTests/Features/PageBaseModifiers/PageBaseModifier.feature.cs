@@ -66,11 +66,11 @@ namespace RedWoodIntegrationTests.Features.PageBaseModifiers
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Using Base Url pattern")]
-        [NUnit.Framework.CategoryAttribute("Firefox")]
+        [NUnit.Framework.CategoryAttribute("PhantomJs")]
         public virtual void UsingBaseUrlPattern()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Using Base Url pattern", new string[] {
-                        "Firefox"});
+                        "PhantomJs"});
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7

@@ -2,7 +2,7 @@
 	In order to test dynamic in memory pages
 	We need to test out the functionality
 
-@Firefox
+@PhantomJs
 Scenario: Dynamic Page add method
 	Given I have created a dynamic page
 	And I create a dynamic method

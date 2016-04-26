@@ -9,8 +9,7 @@ namespace RedWoodIntegrationTests
         [Test]
         public void BasicHeadlessDriverUsage()
         {
-            var headless = new FirefoxDriver(
-                new FirefoxBinary("C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe"), new FirefoxProfile());
+            var headless = new OpenQA.Selenium.PhantomJS.PhantomJSDriver(phantomJSDriverServerDirectory: TestContext.CurrentContext.TestDirectory);
             headless.Navigate().GoToUrl("http://www.google.com");
             Assert.AreEqual(headless.Title, "Google");
             headless.Quit();

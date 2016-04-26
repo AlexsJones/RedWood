@@ -66,11 +66,11 @@ namespace RedWoodIntegrationTests.Features.PageIdentifiers
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify the page I am on")]
-        [NUnit.Framework.CategoryAttribute("Firefox")]
+        [NUnit.Framework.CategoryAttribute("PhantomJs")]
         public virtual void VerifyThePageIAmOn()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the page I am on", new string[] {
-                        "Firefox"});
+                        "PhantomJs"});
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7

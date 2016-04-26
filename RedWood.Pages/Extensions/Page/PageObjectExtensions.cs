@@ -82,5 +82,13 @@ namespace RedWood.Pages.Extensions.Page
         {
             return Path.Combine(baseUrl, page.Url);
         }
+
+        public static void AwaitPageLoad(this Implementation.Page.Page page,
+            int timeoutSeconds)
+        {
+            var wait = new WebDriverWait(page.Driver, TimeSpan.FromSeconds(timeoutSeconds));
+
+            wait.Until(driver1 => ((IJavaScriptExecutor)page.Driver).ExecuteScript("return document.readyState").Equals("complete"));
+        }
     }
 }
