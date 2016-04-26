@@ -3,7 +3,7 @@
 Is a collection of tools for UI and API testing in a BDD style (Specflow)
 It wraps most components in IoC based paradigms and has support for the concept of pages.
 
-There is an examples project that visits a google doodle page using specflow.
+There is an [examples project](https://github.com/AlexsJones/RedWood/tree/master/Example/UnitTestProject1/UnitTestProject1/Features) that visits a google doodle page using specflow.
 
 E.g.
 
@@ -17,3 +17,14 @@ Scenario: Visit a website
 
 The DoodlesPage is something that is retained as IPage between steps and can be downcast for more specialised functionalities
 (All pages have extensions baked in such as `.Visit()`)
+
+Pages can be resolved like so and extensions available [here](https://github.com/AlexsJones/RedWood/blob/master/RedWood.Pages/Extensions/Page/PageObjectExtensions.cs)
+
+```
+{
+	var p = ScenarioContext.Current<Page>() as LoginPage;
+	
+	p.LoginSpecificActivity();
+}
+
+```
