@@ -24,10 +24,10 @@ namespace RedWoodTests
 
         private IContainer _container;
         private IFileService _service;
-        private readonly string _targetRemoteFolderPath = TestContext.CurrentContext.TestDirectory + @"\..\..\Properties";
-        private readonly string _targetRemoteFolderCopy = TestContext.CurrentContext.TestDirectory + @"\Properties";
+        private readonly string _targetRemoteFolderPath = TestContext.CurrentContext.TestDirectory + @"\..\..\obj";
+        private readonly string _targetRemoteFolderCopy = TestContext.CurrentContext.TestDirectory + @"\obj";
         private readonly string _targetRemoteFilePath = TestContext.CurrentContext.TestDirectory + 
-            @"\..\..\Properties\AssemblyInfo.cs";
+            @"\..\..\CoreTests.cs";
 
         [Test]
         public void TestWindowsFileSystemCopyToLocalDirectory()

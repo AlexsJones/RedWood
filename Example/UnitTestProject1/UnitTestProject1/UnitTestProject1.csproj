@@ -125,12 +125,20 @@
       <HintPath>..\packages\NUnit3TestAdapter.3.0.10\lib\NUnit3.TestAdapter.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="RedWood, Version=1.0.41.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\RedWood.1.0.85\lib\net451\RedWood.dll</HintPath>
+    <Reference Include="RedWood, Version=1.0.86.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RedWood.1.0.86\lib\net451\RedWood.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="RedWood.Pages, Version=1.0.41.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\RedWood.Pages.1.0.85\lib\net451\RedWood.Pages.dll</HintPath>
+    <Reference Include="RedWood.Pages, Version=1.0.86.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RedWood.Pages.1.0.86\lib\net451\RedWood.Pages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RedWoodIntegrationTests, Version=1.0.86.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RedWood.SpecFlow.1.0.86\lib\net451\RedWoodIntegrationTests.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RedWoodSpecFlow, Version=1.0.86.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RedWood.SpecFlow.1.0.86\lib\net451\RedWoodSpecFlow.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="RestSharp, Version=104.2.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -162,8 +170,8 @@
       <HintPath>..\packages\Selenium.RC.2.52.0\lib\net40\ThoughtWorks.Selenium.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="WebDriver, Version=2.45.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Selenium.WebDriver.PhantomJS.Xplatform.2.45.0.1\lib\net40\WebDriver.dll</HintPath>
+    <Reference Include="WebDriver, Version=2.52.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.2.52.0\lib\net40\WebDriver.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="WebDriver.Support, Version=2.52.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -185,12 +193,6 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Extensions\StringExtensions.cs" />
-    <Compile Include="Features\Example.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Example.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Steps\ExampleSteps.cs" />
     <Compile Include="Features\Steps\Pages\DoodlesPage.cs" />
     <Compile Include="Features\Steps\Pages\NewsPage.cs" />
     <Compile Include="Features\Steps\Pages\TranslatePage.cs" />
@@ -199,10 +201,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Features\Example.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Example.feature.cs</LastGenOutput>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

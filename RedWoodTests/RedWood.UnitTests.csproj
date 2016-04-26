@@ -128,10 +128,12 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="CoreTests.cs" />
     <Compile Include="FileServiceTests.cs" />
     <Compile Include="ProcessServiceTests.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RedWood.Pages\RedWood.Pages.csproj">

@@ -119,7 +119,6 @@
     <Compile Include="Implementation\Page\PageException.cs" />
     <Compile Include="Interface\Page\IPage.cs" />
     <Compile Include="Implementation\Page\Page.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
