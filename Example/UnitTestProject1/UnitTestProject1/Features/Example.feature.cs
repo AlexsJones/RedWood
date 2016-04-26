@@ -84,20 +84,27 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Visit a website with Chrome")]
-        [NUnit.Framework.CategoryAttribute("Chrome")]
-        public virtual void VisitAWebsiteWithChrome()
+        [NUnit.Framework.DescriptionAttribute("Visit several subpages")]
+        [NUnit.Framework.CategoryAttribute("PhantomJs")]
+        public virtual void VisitSeveralSubpages()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Visit a website with Chrome", new string[] {
-                        "Chrome"});
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Visit several subpages", new string[] {
+                        "PhantomJs"});
 #line 13
 this.ScenarioSetup(scenarioInfo);
 #line 14
  testRunner.Given("I have a base service URL http://www.google.com", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "page"});
+            table1.AddRow(new string[] {
+                        "DoodlesPage"});
+            table1.AddRow(new string[] {
+                        "TranslatePage"});
+            table1.AddRow(new string[] {
+                        "NewsPage"});
 #line 15
- testRunner.And("I visit the subpage DoodlesPage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 16
- testRunner.Then("I am on the right page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("I check the subpage and return:", ((string)(null)), table1, "And ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -9,9 +9,11 @@ Scenario: Visit a website
 	And I visit the subpage DoodlesPage
 	Then I am on the right page
 
-@Chrome
-Scenario: Visit a website with Chrome
+@PhantomJs
+Scenario: Visit several subpages
 	Given I have a base service URL http://www.google.com
-	And I visit the subpage DoodlesPage
-	Then I am on the right page
-
+	And I check the subpage and return:
+	| page          |
+	| DoodlesPage   |
+	| TranslatePage |
+	| NewsPage      |

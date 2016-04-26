@@ -126,11 +126,11 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="RedWood, Version=1.0.41.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\RedWood.1.0.83\lib\net451\RedWood.dll</HintPath>
+      <HintPath>..\packages\RedWood.1.0.85\lib\net451\RedWood.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="RedWood.Pages, Version=1.0.41.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\RedWood.Pages.1.0.83\lib\net451\RedWood.Pages.dll</HintPath>
+      <HintPath>..\packages\RedWood.Pages.1.0.85\lib\net451\RedWood.Pages.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="RestSharp, Version=104.2.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -192,6 +192,8 @@
     </Compile>
     <Compile Include="Features\Steps\ExampleSteps.cs" />
     <Compile Include="Features\Steps\Pages\DoodlesPage.cs" />
+    <Compile Include="Features\Steps\Pages\NewsPage.cs" />
+    <Compile Include="Features\Steps\Pages\TranslatePage.cs" />
     <Compile Include="SpecflowHooks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

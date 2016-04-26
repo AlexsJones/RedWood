@@ -7,6 +7,7 @@ using RedWood.Pages.Implementation.Page;
 using System.Reflection;
 using RedWood.Pages.Extensions.Page;
 using UnitTestProject1.Extensions;
+using System.Linq;
 
 namespace UnitTestProject1.Features.Steps
 {
@@ -17,6 +18,21 @@ namespace UnitTestProject1.Features.Steps
         public void GivenIHaveABaseServiceURL(string path)
         {
             ScenarioContext.Current["BASE_URL"] = path;
+        }
+
+        [Given(@"I check the subpage and return:")]
+        public void GivenICheckTheSubpageAndReturnWithTable(Table table)
+        {
+            foreach(var s in table.Rows)
+            {
+                string v = s.Values.First();
+
+                GivenIVisitTheSubPage(v);
+
+                var p = ScenarioContext.Current.Get<Page>();
+
+                p.Driver.Navigate().Back();
+            }
         }
 
         [Given(@"I visit the subpage (.*)"),
