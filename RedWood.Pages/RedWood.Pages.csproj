@@ -112,6 +112,7 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Extensions\Page\PageObjectExtensions.cs" />
+    <Compile Include="Extensions\String\StringExtensions.cs" />
     <Compile Include="Implementation\Page\Expando.cs" />
     <Compile Include="Implementation\Page\DynamicPage.cs" />
     <Compile Include="Implementation\Page\PageConfiguration.cs" />

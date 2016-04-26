@@ -4,6 +4,8 @@ using OpenQA.Selenium;
 using RedWood.Pages.Extensions.Page;
 using RedWood.Pages.Implementation.Page;
 using TechTalk.SpecFlow;
+using FluentAssertions;
+using RedWood.Pages.Extensions;
 
 namespace RedWoodIntegrationTests.StepDefinitions.PageBaseModifiers
 {
@@ -16,19 +18,32 @@ namespace RedWoodIntegrationTests.StepDefinitions.PageBaseModifiers
             ScenarioContext.Current["BASE_URL"] = p0;
         }
 
-        [Given(@"I am on relative (.*)")]
-        public void GivenIAmOnRelative(string p0)
+        [Given(@"I visit the subpage (.*)"),
+        When(@"I visit the subpage (.*)"),
+        Then(@"I visit the subpage (.*)"),
+        Given(@"I am on relative (.*)")]
+        public void GivenIVisitTheSubPage(string p0)
         {
-            var baseUrl = (string) ScenarioContext.Current["BASE_URL"];
-
             var webdriver = ScenarioContext.Current.Get<IWebDriver>();
 
-            var p = PageConfiguration.GetPage(Assembly.GetExecutingAssembly().GetName().Name,
-                p0, webdriver);
+            var baseUrl = (string)ScenarioContext.Current["BASE_URL"];
 
-            p.Visit(x => new Uri(new Uri(baseUrl), p.Url).ToString());
+            baseUrl.Should().NotBeNullOrEmpty();
 
+            var p = PageConfiguration.GetPage(Assembly.GetExecutingAssembly().GetName().Name, p0, webdriver);
+
+            baseUrl.ParseString();
+            var z = new Uri(baseUrl);
+
+            p.Url.ParseString();
+            var url = new Uri(z, p.Url);
+
+            p.Visit(x => url.ToString());
+
+            p.AwaitPageLoad(10);
+            
             ScenarioContext.Current.Set(p);
         }
+
     }
 }

@@ -138,10 +138,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PageIdentifiers.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\RealWorldComplexUse\RealWorldComplexUse.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RealWorldComplexUse.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AboutSkyPage.cs" />
     <Compile Include="Pages\BbcNewsPage.cs" />
     <Compile Include="Pages\BbcPage.cs" />
+    <Compile Include="Pages\CorporateSkyPage.cs" />
+    <Compile Include="Pages\InvestorsSkyPage.cs" />
     <Compile Include="Pages\TestPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpecFlowHooks.cs" />
     <Compile Include="StepDefinitions\Driver\RedWoodIntegrationCoreSteps.cs" />
     <Compile Include="StepDefinitions\DynamicPages\DynamicPagesSteps.cs" />
     <Compile Include="StepDefinitions\PageBaseModifiers\PageBaseModifierSteps.cs" />
@@ -178,6 +187,10 @@
     <None Include="Features\PageIdentifiers\PageIdentifiers.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>PageIdentifiers.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\RealWorldComplexUse\RealWorldComplexUse.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>RealWorldComplexUse.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
