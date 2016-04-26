@@ -32,17 +32,21 @@ namespace RedWoodTests
         [Test]
         public void TestWindowsFileSystemCopyToLocalDirectory()
         {
-            _service.CopyDirectory(_targetRemoteFolderPath, "RemoteBuildFolder", true);
+            _service.CopyDirectory(_targetRemoteFolderPath, TestContext.CurrentContext.TestDirectory + 
+                @"\RemoteBuildFolder", true);
 
-            _service.DoesDirectoryExist("RemoteBuildFolder").Should().BeTrue();
+            _service.DoesDirectoryExist(TestContext.CurrentContext.TestDirectory + 
+                @"\RemoteBuildFolder").Should().BeTrue();
         }
 
         [Test]
         public void TestWindowsFileSystemCopyToLocalFile()
         {
-            _service.CopyFile(_targetRemoteFilePath, "Somefile.txt");
+            _service.CopyFile(_targetRemoteFilePath, TestContext.CurrentContext.TestDirectory +
+                @"\Somefile.txt");
 
-            _service.DoesFileExist("Somefile.txt").Should().BeTrue();
+            _service.DoesFileExist(TestContext.CurrentContext.TestDirectory +
+                @"\Somefile.txt").Should().BeTrue();
         }
 
         [Test]

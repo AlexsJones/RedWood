@@ -117,7 +117,7 @@ namespace RedWoodTests
 
             fs.DoesFileExist("http://www.google.com").Should().BeTrue();
 
-            fs.DoesFileExist("RedWood.dll").Should().BeFalse();
+            fs.DoesFileExist(TestContext.CurrentContext.TestDirectory + @"\RedWood.dll").Should().BeFalse();
 
             fs = _container.ResolveKeyed<IFileService>(FileServiceType.Windows);
 
