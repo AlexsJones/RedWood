@@ -8,10 +8,12 @@ using System.Reflection;
 using RedWood.Pages.Extensions.Page;
 using UnitTestProject1.Extensions;
 using System.Linq;
+using NUnit.Framework;
 
 namespace UnitTestProject1.Features.Steps
 {
     [Binding]
+    [Parallelizable]
     public class ExampleSteps
     {
         [Given(@"I have a base service URL (.*)")]

@@ -67,10 +67,12 @@ namespace UnitTestProject1.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Visit a website")]
         [NUnit.Framework.CategoryAttribute("PhantomJs")]
+        [NUnit.Framework.CategoryAttribute("Example")]
         public virtual void VisitAWebsite()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Visit a website", new string[] {
-                        "PhantomJs"});
+                        "PhantomJs",
+                        "Example"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
@@ -86,10 +88,12 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Visit several subpages")]
         [NUnit.Framework.CategoryAttribute("PhantomJs")]
+        [NUnit.Framework.CategoryAttribute("Example")]
         public virtual void VisitSeveralSubpages()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Visit several subpages", new string[] {
-                        "PhantomJs"});
+                        "PhantomJs",
+                        "Example"});
 #line 13
 this.ScenarioSetup(scenarioInfo);
 #line 14

@@ -19,6 +19,7 @@ namespace RedWoodSpecFlow
     [Binding]
     public class SpecFlowHooks
     {
+        private readonly ScenarioContext specflowContext;
         public static T ParseEnum<T>(string value, T defaultValue) where T : struct
         {
             try
@@ -35,6 +36,12 @@ namespace RedWoodSpecFlow
             {
                 return defaultValue;
             }
+        }
+
+
+        public SpecFlowHooks(ScenarioContext context)
+        {
+            specflowContext = context;
         }
 
         private void Load(ContainerBuilder e)
@@ -90,23 +97,23 @@ namespace RedWoodSpecFlow
 
             var container = ioc.GetContainer();
 
-            var b = ParseEnum(ScenarioContext.Current.ScenarioInfo.Tags.First(), BrowserType.Firefox);
+            var b = ParseEnum(specflowContext.ScenarioInfo.Tags.First(), BrowserType.Firefox);
 
-            var webDriver = container.ResolveKeyed<IWebDriver>(b);
+            var webDriver = container.ResolveKeyed<IWebDriver>(BrowserType.PhantomJs);
 
             webDriver.Manage().Window.Maximize();
 
-            ScenarioContext.Current.Set(container);
+            specflowContext.Set(container);
 
-            ScenarioContext.Current.Set(webDriver);
+            specflowContext.Set(webDriver);
         }
 
         [AfterScenario]
         public void AfterScenario()
         {
-            ScenarioContext.Current.Get<IWebDriver>().Quit();
+            specflowContext.Get<IWebDriver>().Quit();
 
-            var w = ScenarioContext.Current.Get<IWebDriver>();
+            var w = specflowContext.Get<IWebDriver>();
         }
     }
 }

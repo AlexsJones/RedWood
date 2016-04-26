@@ -12,10 +12,17 @@ namespace RedWoodIntegrationTests.StepDefinitions.PageBaseModifiers
     [Binding]
     public class PageBaseModifierSteps
     {
+
+        private readonly ScenarioContext scenarioContext;
+        public PageBaseModifierSteps(ScenarioContext context)
+        {
+            scenarioContext = context;
+        }
+
         [Given(@"I have a base service Url (.*)")]
         public void GivenIHaveABaseServiceUrl(string p0)
         {
-            ScenarioContext.Current["BASE_URL"] = p0;
+            scenarioContext["BASE_URL"] = p0;
         }
 
         [Given(@"I visit the subpage (.*)"),
@@ -24,9 +31,9 @@ namespace RedWoodIntegrationTests.StepDefinitions.PageBaseModifiers
         Given(@"I am on relative (.*)")]
         public void GivenIVisitTheSubPage(string p0)
         {
-            var webdriver = ScenarioContext.Current.Get<IWebDriver>();
+            var webdriver = scenarioContext.Get<IWebDriver>();
 
-            var baseUrl = (string)ScenarioContext.Current["BASE_URL"];
+            var baseUrl = (string)scenarioContext["BASE_URL"];
 
             baseUrl.Should().NotBeNullOrEmpty();
 
@@ -41,8 +48,8 @@ namespace RedWoodIntegrationTests.StepDefinitions.PageBaseModifiers
             p.Visit(x => url.ToString());
 
             p.AwaitPageLoad(10);
-            
-            ScenarioContext.Current.Set(p);
+
+            scenarioContext.Set(p);
         }
 
     }

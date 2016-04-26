@@ -9,18 +9,26 @@ namespace RedWoodIntegrationTests.StepDefinitions.DynamicPages
     [Binding]
     public class DynamicPagesSteps
     {
+
+        private readonly ScenarioContext scenarioContext;
+
+        public DynamicPagesSteps(ScenarioContext context)
+        {
+            scenarioContext = context;
+        }
+
         [Given(@"I have created a dynamic page")]
         public void GivenIHaveCreatedADynamicPage()
         {
-            var dp = new DynamicPage(ScenarioContext.Current.Get<IWebDriver>());
+            var dp = new DynamicPage(scenarioContext.Get<IWebDriver>());
 
-            ScenarioContext.Current.Add("dynamicPage", dp);
+            scenarioContext.Add("dynamicPage", dp);
         }
 
         [Given(@"I create a dynamic method")]
         public void GivenICreateADynamicMethod()
         {
-            var dp = (dynamic) ScenarioContext.Current.Get<DynamicPage>("dynamicPage");
+            var dp = (dynamic)scenarioContext.Get<DynamicPage>("dynamicPage");
 
             dp.TestMethod = (Func<string, string>) ((string name) => { return "Returned Successfully: " + name; });
         }
@@ -28,7 +36,7 @@ namespace RedWoodIntegrationTests.StepDefinitions.DynamicPages
         [Then(@"the expando object should work correctly when I execute it")]
         public void ThenTheExpandoObjectShouldWorkCorrectlyWhenIExecuteIt()
         {
-            var dp = (dynamic) ScenarioContext.Current.Get<DynamicPage>("dynamicPage");
+            var dp = (dynamic)scenarioContext.Get<DynamicPage>("dynamicPage");
 
             var ret = dp.TestMethod("Hello");
 
