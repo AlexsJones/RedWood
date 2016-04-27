@@ -40,3 +40,17 @@ DoodlesPage is reflected to a concrete class implementation
 
 As you can see we can setup an array of `KeyIdentifier` which can be used to judge if we're on the right page.
 
+####Page use within a step
+
+```C#
+{
+  	var p = scenarioContext.Get<Page>();
+
+        p.DoesPageMatchIdentifiers().Should().BeTrue();
+
+        scenarioContext.Set(p);
+}
+```
+
+As you can see within this step we've resolved via scenarioContext the current Page that was set in the previous step and are checking via [extension](https://github.com/AlexsJones/RedWood/blob/master/RedWood.Pages/Extensions/Page/PageObjectExtensions.cs) whether we're on the correct page.
+
