@@ -65,12 +65,12 @@ namespace RedWoodSpecFlow.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Visit a website")]
-        [NUnit.Framework.CategoryAttribute("InternetExplorer")]
+        [NUnit.Framework.CategoryAttribute("PhantomJs")]
         [NUnit.Framework.CategoryAttribute("Example")]
         public virtual void VisitAWebsite()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Visit a website", new string[] {
-                        "InternetExplorer",
+                        "PhantomJs",
                         "Example"});
 #line 6
 this.ScenarioSetup(scenarioInfo);
