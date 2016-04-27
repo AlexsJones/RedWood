@@ -16,7 +16,7 @@ There is an [examples feature](https://github.com/AlexsJones/RedWood/tree/master
 
 E.g.
 
-```
+```C#
 @PhantomJs
 Scenario: Visit a website
 	Given I have a base service URL http://www.google.com
@@ -24,16 +24,19 @@ Scenario: Visit a website
 	Then I am on the right page
 ```
 
-The DoodlesPage is something that is retained as IPage between steps and can be downcast for more specialised functionalities
-(All pages have extensions baked in such as `.Visit()`)
+DoodlesPage is reflected to a concrete class implementation
+```C#
+    public class DoodlesPage : Page
+    {
+        public DoodlesPage(IWebDriver driver) : base(driver, "doodles", 
+            new[] {
+                new RedWood.Pages.Interface.Page.KeyIdentifier(By.LinkText("Doodles Archive"))
+            })
+        {
 
-Pages can be resolved like so and extensions available [here](https://github.com/AlexsJones/RedWood/blob/master/RedWood.Pages/Extensions/Page/PageObjectExtensions.cs)
-
+        }
+    }
 ```
-{
-	var p = ScenarioContext.Current<Page>() as LoginPage;
-	
-	p.LoginSpecificActivity();
-}
 
-```
+As you can see we can setup an array of `KeyIdentifier` which can be used to judge if we're on the right page.
+
