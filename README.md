@@ -3,6 +3,15 @@
 Is a collection of tools for UI and API testing in a BDD style (Specflow)
 It wraps most components in IoC based paradigms and has support for the concept of pages.
 
+##TL;DR
+
+`Install-Package Redwood`
+Gives you the core tools and IoC friendly interfaces for useful helpers while testing
+
+`Install-Package RedWood.Pages`
+Gives you a page object model system which is best explained by viewing the example
+
+
 There is an [examples feature](https://github.com/AlexsJones/RedWood/tree/master/RedWood.SpecFlow/Features) that visits a google doodle page using specflow.
 
 E.g.
