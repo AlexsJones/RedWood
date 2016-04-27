@@ -5,6 +5,7 @@
     <version>1.0.86</version>
     <authors>jonesax</authors>
     <owners>jonesax</owners>
+    <projectUrl>https://github.com/AlexsJones/RedWood</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Redwoodbase</description>
     <dependencies>
