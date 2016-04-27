@@ -20,6 +20,7 @@ namespace RedWoodSpecFlow
     public class SpecFlowHooks
     {
         private readonly ScenarioContext specflowContext;
+
         public static T ParseEnum<T>(string value, T defaultValue) where T : struct
         {
             try
