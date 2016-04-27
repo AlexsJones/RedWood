@@ -37,7 +37,9 @@ namespace RedWoodSpecFlow.Features.Steps
 
             baseUrl.Should().NotBeNullOrEmpty();
 
-            var p = PageConfiguration.GetPage(Assembly.GetExecutingAssembly().GetName().Name, page, webdriver);
+            var p = PageConfiguration.
+                GetPage(Assembly.GetExecutingAssembly().
+                GetName().Name, page, webdriver);
 
             baseUrl.ParseString();
             var z = new Uri(baseUrl);

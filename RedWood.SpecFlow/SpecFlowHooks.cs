@@ -114,7 +114,6 @@ namespace RedWoodSpecFlow
         {
             specflowContext.Get<IWebDriver>().Quit();
 
-            var w = specflowContext.Get<IWebDriver>();
         }
     }
 }

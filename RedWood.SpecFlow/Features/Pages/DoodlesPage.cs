@@ -12,7 +12,7 @@ namespace RedWoodSpecFlow.Features.Pages
     {
         public DoodlesPage(IWebDriver driver) : base(driver, "doodles", 
             new[] {
-                new RedWood.Pages.Interface.Page.KeyIdentifier(By.LinkText("Doodles Archive"))
+                new RedWood.Pages.Interface.Page.KeyIdentifier(By.PartialLinkText("Doodles Archive"))
             })
         {
 

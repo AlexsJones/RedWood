@@ -56,6 +56,7 @@ namespace RedWood.Pages.Extensions.Page
 
         public static IWebElement FindElement(this Implementation.Page.Page page, By by, TimeSpan timeoutInSeconds)
         {
+            /* Internet explorer must have protected mode disabled */
             var wait = new WebDriverWait(page.Driver, timeoutInSeconds);
             return wait.Until(driver => driver.FindElement(by));
         }

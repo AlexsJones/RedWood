@@ -6,6 +6,7 @@
         Firefox,
         Opera,
         InternetExplorer,
+        InternetExplorer8,
         PhantomJs
     }
 }
